@@ -4,6 +4,7 @@ import { NavigationBar } from "~/components/navigationBar";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import { CurrentPageProvider } from "~/contexts/currentPageContext";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Optiiflo MVP",
@@ -20,9 +21,13 @@ export default function RootLayout({
       <body className="flex h-screen w-full">
         <CurrentPageProvider>
           <div className="SidebarLayoutContainer flex h-full w-full">
-            <SidebarComponent />
+            <Suspense fallback={<div>Loading...</div>}>
+              <SidebarComponent />
+            </Suspense>
             <div className="MaintContentContainer flex h-screen w-full flex-col">
-              <NavigationBar />
+              <Suspense fallback={<div>Loading...</div>}>
+                <NavigationBar />
+              </Suspense>
               <div className="MainContentWindow flex-1 overflow-y-scroll">
                 {children}
               </div>
