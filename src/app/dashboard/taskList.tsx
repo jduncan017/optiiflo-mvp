@@ -27,11 +27,11 @@ export default function TaskList() {
   function getStatusColor(status: string) {
     switch (status) {
       case "Completed":
-        return "bg-green-200 text-green-800";
+        return "bg-lime-200 text-lime-900";
       case "In Progress":
-        return "bg-blue-200 text-blue-800";
+        return "bg-optiiBlue/40 text-optiiTeal";
       case "Pending":
-        return "bg-orange-200 text-orange-800";
+        return "bg-amber-200 text-stone-800";
       default:
         return "bg-gray-200 text-gray-800";
     }
@@ -55,11 +55,13 @@ export default function TaskList() {
           {tasks.map((task) => (
             <li
               key={task.id}
-              className={`TaskListItem ${
-                task.status === "Completed" && "bg-gray-300"
-              } flex items-center justify-between rounded-lg border border-neutral-200 bg-gray-100 p-4 shadow`}
+              className={`TaskListItem flex items-center justify-between rounded-lg border border-stone-200 bg-stone-100 p-4 shadow`}
             >
-              <p>{task.name}</p>
+              <p
+                className={`Task ${task.status === "Completed" && "line-through"}`}
+              >
+                {task.name}
+              </p>
               <div className="flex w-32 items-center gap-2">
                 <Select
                   value={task.status}

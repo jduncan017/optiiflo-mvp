@@ -18,6 +18,7 @@ export default {
         optiiTeal: "#0C3842",
         optiiOrange: "#FF6645",
         optiiBlue: "#A2D9E5",
+        optiiLightBlue: "#F5FFFB",
       },
     },
   },
