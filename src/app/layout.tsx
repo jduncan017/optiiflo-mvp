@@ -1,9 +1,9 @@
 import "~/styles/globals.css";
-import { SidebarComponent } from "~/components/sidebar";
+import SidebarComponent from "~/components/appSidebar";
 import { NavigationBar } from "~/components/navigationBar";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
-import { SidebarProvider } from "~/contexts/sidebarContext";
+import { CurrentPageProvider } from "~/contexts/currentPageContext";
 
 export const metadata: Metadata = {
   title: "Optiiflo MVP",
@@ -18,15 +18,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body className="flex h-screen w-full">
-        <SidebarProvider>
+        <CurrentPageProvider>
           <div className="SidebarLayoutContainer flex h-full w-full">
             <SidebarComponent />
-            <div className="MaintContentContainer flex h-full w-full flex-col">
+            <div className="MaintContentContainer flex h-screen w-full flex-col">
               <NavigationBar />
-              <div className="flex-1 overflow-y-auto">{children}</div>
+              <div className="MainContentWindow flex-1 overflow-y-scroll">
+                {children}
+              </div>
             </div>
           </div>
-        </SidebarProvider>
+        </CurrentPageProvider>
       </body>
     </html>
   );

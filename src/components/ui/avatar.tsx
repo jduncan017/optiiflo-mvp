@@ -32,12 +32,7 @@ export default function Avatar({
       {...props}
     >
       {src ? (
-        <Image
-          src={src}
-          alt={`${fullName}'s Avatar`}
-          layout="fill"
-          objectFit="cover"
-        />
+        <Image src={src} alt={`${fullName}'s Avatar`} width={48} height={48} />
       ) : (
         <p>{initials}</p>
       )}
