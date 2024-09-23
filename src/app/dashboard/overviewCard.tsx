@@ -16,7 +16,7 @@ export default function OverviewCard({
 }: OverviewCardProps) {
   return (
     <Card className="OverviewCard flex h-full flex-col">
-      <CardHeader className="HeaderContiner flex flex-row items-center justify-between pb-6">
+      <CardHeader className="HeaderContiner flex flex-row items-center justify-between pb-8">
         <CardTitle className="Title text-sm font-medium">{title}</CardTitle>
         <Icon className="Icon mt-0 h-6 w-6 text-optiiOrange dark:text-gray-400" />
       </CardHeader>

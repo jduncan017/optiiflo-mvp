@@ -22,7 +22,6 @@ export const metadata: Metadata = {
     "tax",
   ],
   authors: [{ name: "Joshua Duncan" }, { name: "DigitalNova Studio" }],
-  viewport: "width=device-width, initial-scale=1",
   openGraph: {
     title: "Optiiflo MVP",
     description:

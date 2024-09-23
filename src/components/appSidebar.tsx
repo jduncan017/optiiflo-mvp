@@ -38,7 +38,7 @@ export default function SidebarComponent() {
     { name: "Dashboard", icon: Home, href: "/dashboard" },
     { name: "Email", icon: Mail, href: "/email" },
     { name: "My Week", icon: Calendar, href: "/myWeek" },
-    { name: "Contacts", icon: Users, href: "/clients" },
+    { name: "Clients", icon: Users, href: "/clients" },
   ];
 
   return (

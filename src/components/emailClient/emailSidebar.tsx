@@ -5,63 +5,138 @@ import { Button } from "~/components/ui/button";
 import { Mail, Send, Clock, Users, Trash2, Menu } from "lucide-react";
 import { cva } from "class-variance-authority";
 
-const Inboxes = {
-  Inbox: {
-    icon: Mail,
-    label: "Inbox",
-  },
-  Sent: {
-    icon: Send,
-    label: "Sent",
-  },
-  Scheduled: {
-    icon: Clock,
-    label: "Scheduled",
-  },
-  Contacts: {
-    icon: Users,
-    label: "Contacts",
-  },
-  Trash: {
-    icon: Trash2,
-    label: "Trash",
-  },
-  Menu: {
-    icon: Menu,
-    label: "Menu",
-  },
-};
-
 const IconStyles = cva("h-6 w-6", {
   variants: {
     selected: {
       true: "text-optiiBlue",
       false: "hover:text-optiiTeal",
     },
+    open: {
+      true: "text-optiiBlue",
+      false: "hover:text-optiiTeal",
+    },
   },
   defaultVariants: {
     selected: false,
+    open: false,
   },
 });
 
+const SidebarStyles = cva(
+  "Sidebar flex flex-col w-fit items-center gap-6 bg-optiiTeal px-1.5 py-8 transition-all duration-300 overflow-hidden",
+  {
+    variants: {
+      isOpen: {
+        true: "min-w-[240px] items-start",
+        false: "min-w-[100px] items-center",
+      },
+    },
+    defaultVariants: {
+      isOpen: false,
+    },
+  },
+);
+
+const ButtonStyles = cva(
+  "h-12 w-full justify-start gap-3 text-white hover:bg-white hover:text-optiiTeal",
+  {
+    variants: {
+      selected: {
+        true: "text-optiiBlue",
+        false: "hover:bg-white hover:text-optiiTeal",
+      },
+    },
+    defaultVariants: {
+      selected: false,
+    },
+  },
+);
+
 export default function EmailSidebar() {
   const [selectedInbox, setSelectedInbox] = useState("Inbox");
+  const [isOpen, setIsOpen] = useState(false);
+
+  const Inboxes = {
+    Inbox: {
+      icon: Mail,
+      label: "Inbox",
+      action: () => {
+        console.log("Inbox action triggered");
+      },
+    },
+    Sent: {
+      icon: Send,
+      label: "Sent",
+      action: () => {
+        console.log("Sent action triggered");
+      },
+    },
+    Scheduled: {
+      icon: Clock,
+      label: "Scheduled",
+      action: () => {
+        console.log("Scheduled action triggered");
+      },
+    },
+    Contacts: {
+      icon: Users,
+      label: "Contacts",
+      action: () => {
+        console.log("Contacts action triggered");
+      },
+    },
+    Trash: {
+      icon: Trash2,
+      label: "Trash",
+      action: () => {
+        console.log("Trash action triggered");
+      },
+    },
+  };
 
   return (
-    <div className="flex flex-col items-center gap-6 bg-optiiTeal px-4 py-8">
-      {Object.entries(Inboxes).map(([key, value]) => (
-        <Button
-          key={key}
-          variant="ghost"
-          size="icon"
-          className="text-white hover:bg-white hover:text-optiiTeal"
-          onClick={() => setSelectedInbox(key)}
-        >
-          <value.icon
-            className={IconStyles({ selected: key === selectedInbox })}
-          />
-        </Button>
-      ))}
-    </div>
+    <>
+      <ul className={SidebarStyles({ isOpen })}>
+        {Object.entries(Inboxes).map(([key, value]) => (
+          <li className={`${key} relative w-full px-4`} key={key}>
+            <Button
+              variant="ghost"
+              className={ButtonStyles({
+                selected: key === selectedInbox,
+              })}
+              onClick={() => {
+                value.action();
+                setSelectedInbox(key);
+              }}
+            >
+              <value.icon
+                className={IconStyles({
+                  selected: key === selectedInbox,
+                })}
+              />
+              {isOpen && (
+                <p className="absolute left-[70px] text-lg font-medium">
+                  {value.label}
+                </p>
+              )}
+            </Button>
+          </li>
+        ))}
+        <li className="relative w-full px-4">
+          <Button
+            variant="ghost"
+            className="h-12 w-full justify-start gap-3 text-white hover:bg-white hover:text-optiiTeal"
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          >
+            <Menu className="h-6 w-6" />
+            {isOpen && (
+              <p className="absolute left-[70px] text-lg font-medium">Menu</p>
+            )}
+          </Button>
+        </li>
+      </ul>
+    </>
   );
 }
