@@ -9,8 +9,35 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   title: "Optiiflo MVP",
   description:
-    "Minimum viable product example for Optiiflo - a CPA firm management application.",
+    "An innovative CPA firm management application designed to streamline workflows and enhance project management.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
+  keywords: [
+    "Optiiflo",
+    "CPA",
+    "workflow",
+    "organization",
+    "project management",
+    "accounting",
+    "finance",
+    "tax",
+  ],
+  authors: [{ name: "Joshua Duncan" }, { name: "DigitalNova Studio" }],
+  viewport: "width=device-width, initial-scale=1",
+  openGraph: {
+    title: "Optiiflo MVP",
+    description:
+      "An innovative CPA firm management application designed to streamline workflows and enhance project management.",
+    // url: "https://www.optiiflo.com",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Optiiflo MVP",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
