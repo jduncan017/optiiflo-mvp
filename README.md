@@ -1,12 +1,16 @@
-# Create T3 App
+# Optiiflo
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Optiiflo is a comprehensive CPA firm management application designed to streamline the management of incoming client emails, organize company and client profiles, and integrate workflows, task management, and other organizational features.
 
-## What's next? How do I make an app with this?
+## Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **Email Management**: Efficiently manage incoming client emails.
+- **Profile Management**: Organize company and client profiles.
+- **Integrated Workflows**: Seamlessly integrate workflows for better productivity.
+- **Task Management**: Manage tasks and deadlines effectively.
+- **Organizational Tools**: Various tools to help keep your firm organized.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Technologies Used
 
 - [Next.js](https://nextjs.org)
 - [NextAuth.js](https://next-auth.js.org)
@@ -15,15 +19,71 @@ If you are not familiar with the different technologies used in this project, pl
 - [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
 
+### Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v14 or later)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/your-username/optiflo.git
+   cd optiflo
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Set up environment variables**:
+   Create a `.env` file in the root of your project and add the necessary environment variables. Refer to `.env.example` for the required variables.
+
+4. **Run database migrations**:
+   ```bash
+   npx prisma migrate dev
+   ```
+
+### Running the Application
+
+1. **Start the development server**:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+2. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
 ## Learn More
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+To learn more about the T3 Stack, take a look at the following resources:
 
-- [Documentation](https://create.t3.gg/)
+- [T3 Stack Documentation](https://create.t3.gg/)
 - [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+You can also check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
 
-## How do I deploy this?
+## Deployment
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify), and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+## Support
+
+If you need help, please join our [Discord](https://t3.gg/discord) and ask for assistance.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.

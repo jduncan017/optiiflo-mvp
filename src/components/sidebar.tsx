@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+import Avatar from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
 import { Home, Mail, Calendar, Users } from "lucide-react";
 import { useSidebar } from "~/contexts/sidebarContext";
@@ -58,10 +58,11 @@ export function SidebarComponent({
           variant="ghost"
           className="flex w-full items-center justify-start rounded-sm py-10"
         >
-          <Avatar className="h-12 w-12">
-            <AvatarImage src="/josh-small.jpeg" alt="User" />
-            <AvatarFallback>JD</AvatarFallback>
-          </Avatar>
+          <Avatar
+            fullName="Joshua Duncan"
+            className="h-12 w-12"
+            src="/josh-small.jpeg"
+          />
           Account Settings
         </Button>
       </div>
