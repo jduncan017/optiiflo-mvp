@@ -20,10 +20,10 @@ export function NavigationBar() {
   };
 
   return (
-    <div className="NavigationBar flex h-16 w-full items-center justify-between gap-5 border-b border-neutral-800 bg-white px-6">
+    <div className="NavigationBar flex w-full items-center justify-between gap-5 border-b border-neutral-800 bg-white px-6 py-2">
       <div className="flex items-center gap-5">
         <Button variant="ghost" size="icon" onClick={toggleSidebar}>
-          <Menu className="h-8 w-8" />
+          <Menu className="h-7 w-7" />
         </Button>
       </div>
       <div className="flex items-center gap-5">

@@ -32,7 +32,7 @@ const Inboxes = {
   },
 };
 
-const IconStyles = cva("h-8 w-8", {
+const IconStyles = cva("h-6 w-6", {
   variants: {
     selected: {
       true: "text-optiiBlue",

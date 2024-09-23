@@ -5,6 +5,7 @@ import { Button } from "~/components/ui/button";
 import { Home, Mail, Calendar, Users } from "lucide-react";
 import { cva } from "class-variance-authority";
 import Link from "next/link";
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useCurrentPage } from "~/contexts/currentPageContext";
@@ -42,34 +43,36 @@ export default function SidebarComponent() {
   ];
 
   return (
-    <div className={sidebarStyles({ isOpen })}>
-      {menuItems.map((item) => (
-        <Link href={item.href} key={item.name}>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className={sidebarStyles({ isOpen })}>
+        {menuItems.map((item) => (
+          <Link href={item.href} key={item.name}>
+            <Button
+              key={item.name}
+              variant={currentPage === item.name ? "selected" : "default"}
+              size="lg"
+              className="w-full text-nowrap"
+              onClick={() => setCurrentPage(item.name)}
+            >
+              <item.icon className="mr-3 h-5 w-5" />
+              {item.name}
+            </Button>
+          </Link>
+        ))}
+        <div className="AccountSettingsContainer mb-4 mt-auto text-white">
           <Button
-            key={item.name}
-            variant={currentPage === item.name ? "selected" : "default"}
-            size="lg"
-            className="w-full text-nowrap"
-            onClick={() => setCurrentPage(item.name)}
+            variant="ghost"
+            className="flex w-full items-center justify-start rounded-sm py-10"
           >
-            <item.icon className="mr-3 h-5 w-5" />
-            {item.name}
+            <Avatar
+              fullName="Joshua Duncan"
+              className="h-12 w-12"
+              src="/josh-small.jpeg"
+            />
+            Account Settings
           </Button>
-        </Link>
-      ))}
-      <div className="AccountSettingsContainer mb-4 mt-auto text-white">
-        <Button
-          variant="ghost"
-          className="flex w-full items-center justify-start rounded-sm py-10"
-        >
-          <Avatar
-            fullName="Joshua Duncan"
-            className="h-12 w-12"
-            src="/josh-small.jpeg"
-          />
-          Account Settings
-        </Button>
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 }

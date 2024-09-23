@@ -22,7 +22,7 @@ const buttonVariants = cva(
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-12 rounded-md px-8",
-        icon: "p-4 justify-center w-fit hover:cursor-default",
+        icon: "p-3 justify-center w-fit hover:cursor-default",
       },
     },
     defaultVariants: {
