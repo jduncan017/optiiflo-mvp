@@ -4,9 +4,24 @@ import emailData from "~/lib/emailData";
 import type { Email } from "~/lib/emailData";
 import emailNameParse from "~/utils/emailNameParse";
 import formatDate from "~/utils/dateFormat";
+import { cva } from "class-variance-authority";
+
+// Define styles using cva
+const emailListItemStyles = cva(
+  "EmailListItem flex cursor-pointer gap-2 border-b border-neutral-400 p-4",
+  {
+    variants: {
+      selected: {
+        true: "bg-optiiBlue/80",
+        false: "bg-neutral-100 hover:bg-optiiBlue/40",
+      },
+    },
+  },
+);
 
 interface EmailListProps {
   selectEmail: (email: Email) => void;
+  selectedEmailID?: string;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
 }
@@ -15,6 +30,7 @@ export default function EmailList({
   selectEmail,
   searchQuery,
   setSearchQuery,
+  selectedEmailID,
 }: EmailListProps) {
   const filteredEmails = emailData.filter(
     (email) =>
@@ -41,7 +57,9 @@ export default function EmailList({
         {filteredEmails.map((email, i) => (
           <li
             key={i}
-            className="EmailListItem flex cursor-pointer gap-2 border-b border-neutral-400 bg-neutral-100 p-4 hover:bg-optiiBlue"
+            className={emailListItemStyles({
+              selected: selectedEmailID === email.messageId,
+            })}
             onClick={() => selectEmail(email)}
           >
             <Avatar className="h-9 w-9" fullName={email.from} />

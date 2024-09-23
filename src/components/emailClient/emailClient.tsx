@@ -20,6 +20,7 @@ export function EmailClientComponent() {
         selectEmail={selectEmail}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
+        selectedEmailID={selectedEmail?.messageId}
       />
       {/* Email Content Window */}
       {selectedEmail && <EmailContent email={selectedEmail} />}
