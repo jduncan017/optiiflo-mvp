@@ -2,7 +2,7 @@
 
 import Avatar from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
-import { Home, Mail, Calendar, Users } from "lucide-react";
+import { Home, Calendar, Users, Clock, Folder, Waypoints } from "lucide-react";
 import { cva } from "class-variance-authority";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -35,10 +35,16 @@ export default function SidebarComponent() {
   }, [searchParams]);
 
   const menuItems = [
-    { name: "Dashboard", icon: Home, href: "/dashboard" },
-    { name: "Email", icon: Mail, href: "/email" },
-    { name: "My Week", icon: Calendar, href: "/myWeek" },
-    { name: "Clients", icon: Users, href: "/clients" },
+    { name: "My Week", icon: Home, href: "/myWeek?sidebarOpen=true" },
+    { name: "Bridge", icon: Waypoints, href: "/bridge?sidebarOpen=true" },
+    { name: "Projects", icon: Folder, href: "/projects?sidebarOpen=true" },
+    { name: "Clients", icon: Users, href: "/clients?sidebarOpen=true" },
+    { name: "Calendar", icon: Calendar, href: "/calendar?sidebarOpen=true" },
+    {
+      name: "Time Tracking",
+      icon: Clock,
+      href: "/timeTracking?sidebarOpen=true",
+    },
   ];
 
   return (

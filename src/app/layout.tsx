@@ -44,7 +44,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body className="flex h-screen w-full">
+      <body className="flex h-screen w-full overflow-hidden">
         <CurrentPageProvider>
           <div className="SidebarLayoutContainer flex h-full w-full">
             <Suspense fallback={<div>Loading...</div>}>

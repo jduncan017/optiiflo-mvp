@@ -20,6 +20,9 @@ export default {
         optiiBlue: "#A2D9E5",
         optiiLightBlue: "#F5FFFB",
       },
+      boxShadow: {
+        optii: "2px 4px 4px rgba(0, 0, 0, 0.25)",
+      },
     },
   },
   plugins: [],

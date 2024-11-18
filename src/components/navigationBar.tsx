@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "~/components/ui/button";
-import { Menu } from "lucide-react";
+import { Clock, Menu } from "lucide-react";
 import Image from "next/image";
 import { useCurrentPage } from "~/contexts/currentPageContext";
 import { Bell } from "lucide-react";
@@ -44,6 +44,9 @@ export function NavigationBar() {
         />
         <Button variant="ghost" size="icon">
           <Bell className="h-5 w-5" />
+        </Button>
+        <Button variant="ghost" size="icon">
+          <Clock className="h-5 w-5" />
         </Button>
       </div>
     </div>
