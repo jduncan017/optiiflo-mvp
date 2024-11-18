@@ -4,8 +4,7 @@ import EmailSidebar from "~/components/emailClient/emailSidebar";
 import PlannerCard from "./plannerCard";
 import TaskList from "./taskList";
 import TaskFilterButton from "./taskFilterButton";
-import { useEffect } from "react";
-import { Suspense } from "react";
+import { useEffect, Suspense } from "react";
 
 export default function ProjectsPage() {
   const searchParams = useSearchParams();
@@ -34,7 +33,7 @@ export default function ProjectsPage() {
 
   useEffect(() => {
     setTaskFilter(taskFilter);
-  });
+  }, [taskFilter, setTaskFilter]);
 
   return (
     <div className="EmailClient flex h-full w-full bg-gray-100">
@@ -52,8 +51,8 @@ export default function ProjectsPage() {
                 />
               ))}
             </div>
+            <TaskList taskFilter={taskFilter} />
           </Suspense>
-          <TaskList taskFilter={taskFilter} />
         </div>
         <div className="WeekPlanner grid h-full w-fit grid-cols-2 gap-4 text-2xl tracking-widest">
           {weekdays.map((day) => (
