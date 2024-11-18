@@ -50,7 +50,7 @@ export default function RootLayout({
             <Suspense fallback={<div>Loading...</div>}>
               <SidebarComponent />
             </Suspense>
-            <div className="MaintContentContainer flex h-screen w-full flex-col">
+            <div className="MainContentContainer flex h-screen w-full flex-col">
               <Suspense fallback={<div>Loading...</div>}>
                 <NavigationBar />
               </Suspense>

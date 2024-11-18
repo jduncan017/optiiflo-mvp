@@ -31,8 +31,8 @@ Make sure you have the following installed:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/your-username/optiflo.git
-   cd optiflo
+   git clone https://github.com/jduncan017/optiiflo.git
+   cd optiiflo
    ```
 
 2. **Install dependencies**:
@@ -63,27 +63,6 @@ Make sure you have the following installed:
 
 2. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-## Learn More
-
-To learn more about the T3 Stack, take a look at the following resources:
-
-- [T3 Stack Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can also check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## Deployment
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify), and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
-
-## Support
-
-If you need help, please join our [Discord](https://t3.gg/discord) and ask for assistance.
-
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License.
+Branch Name Format: {prefix}/{username}/{description}
