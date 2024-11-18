@@ -5,6 +5,7 @@ import PlannerCard from "./plannerCard";
 import TaskList from "./taskList";
 import TaskFilterButton from "./taskFilterButton";
 import { useEffect } from "react";
+import { Suspense } from "react";
 
 export default function ProjectsPage() {
   const searchParams = useSearchParams();
@@ -40,17 +41,19 @@ export default function ProjectsPage() {
       <EmailSidebar />
       <div className="PageContent flex h-full w-full gap-4 p-10">
         <div className="Tasks flex flex-grow flex-col gap-4">
-          <div className="TaskFilterButtons grid grid-cols-2 gap-2.5">
-            {taskFilterButtons.map((button) => (
-              <TaskFilterButton
-                key={button}
-                title={button}
-                isSelected={taskFilter === button}
-                setTaskFilter={setTaskFilter}
-              />
-            ))}
-          </div>
-          <TaskList />
+          <Suspense fallback={<div>Loading...</div>}>
+            <div className="TaskFilterButtons grid grid-cols-2 gap-2.5">
+              {taskFilterButtons.map((button) => (
+                <TaskFilterButton
+                  key={button}
+                  title={button}
+                  isSelected={taskFilter === button}
+                  setTaskFilter={setTaskFilter}
+                />
+              ))}
+            </div>
+          </Suspense>
+          <TaskList taskFilter={taskFilter} />
         </div>
         <div className="WeekPlanner grid h-full w-fit grid-cols-2 gap-4 text-2xl tracking-widest">
           {weekdays.map((day) => (
