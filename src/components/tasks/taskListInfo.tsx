@@ -1,5 +1,5 @@
 "use client";
-import { TaskData } from "~/lib/taskData";
+import type { TaskData } from "~/lib/taskData";
 
 export default function TaskListInfo({ tasks }: { tasks: TaskData[] }) {
   const priorityCount = tasks.filter((task) => task.priority === "high").length;

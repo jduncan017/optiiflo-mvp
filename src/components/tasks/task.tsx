@@ -1,6 +1,6 @@
 "use client";
 import { SquareArrowOutUpRight, Ellipsis, Clock } from "lucide-react";
-import { TaskData } from "~/lib/taskData";
+import type { TaskData } from "~/lib/taskData";
 
 export default function Task({ task }: { task: TaskData }) {
   return (

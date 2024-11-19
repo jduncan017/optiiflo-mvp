@@ -14,7 +14,7 @@ const CurrentPageContext = createContext<CurrentPageContextProps | undefined>(
 
 export const CurrentPageProvider = ({ children }: { children: ReactNode }) => {
   const [currentPage, setCurrentPage] = useState(
-    window.location.pathname.split("/")[1] || "",
+    window.location.pathname.split("/")[1] ?? "",
   );
 
   return (
