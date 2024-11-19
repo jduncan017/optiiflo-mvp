@@ -1,5 +1,5 @@
 import Avatar from "~/components/ui/avatar";
-import { Input } from "~/components/ui/input";
+import { SearchBar } from "~/components/ui/SearchBar";
 import emailData from "~/lib/emailData";
 import type { Email } from "~/lib/emailData";
 import emailNameParse from "~/utils/emailNameParse";
@@ -43,7 +43,7 @@ export default function EmailList({
     <div className="EmailList flex h-full w-[375px] flex-col border-r-4 bg-white">
       <div className="SearchBarContainer bg-neutral-800">
         <div className="p-4">
-          <Input
+          <SearchBar
             className="SearchBar w-full"
             type="text"
             placeholder="Search..."

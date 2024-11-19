@@ -1,16 +1,14 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
-import EmailSidebar from "~/components/emailClient/emailSidebar";
 import PlannerCard from "./plannerCard";
-import TaskList from "./taskList";
+import TaskList from "../../components/tasks/taskList";
 import TaskFilterButton from "./taskFilterButton";
 import { useEffect, Suspense, useCallback } from "react";
 
 export default function ProjectsPage() {
   return (
-    <div className="Sidebar flex h-full w-full bg-gray-100">
-      <EmailSidebar />
-      <div className="PageContent flex h-full w-full gap-4 p-10">
+    <div className="PageContent flex h-[calc(100vh-theme(spacing.16))] w-full flex-col overflow-hidden">
+      <div className="flex-1 overflow-y-auto px-10 pb-10 pt-10">
         <Suspense fallback={<div>Loading...</div>}>
           <ProjectsContent />
         </Suspense>
@@ -52,8 +50,8 @@ function ProjectsContent() {
   }, [taskFilter, setTaskFilter]);
 
   return (
-    <div className="Tasks flex flex-grow gap-4">
-      <div className="TaskFilterButtonsContainer flex flex-grow flex-col gap-4">
+    <div className="Tasks flex h-full min-h-fit flex-grow gap-4">
+      <div className="TaskFilterButtonsContainer flex h-full min-h-fit flex-grow flex-col gap-4">
         <div className="TaskFilterButtons grid grid-cols-2 gap-2.5">
           {taskFilterButtons.map((button) => (
             <TaskFilterButton
@@ -66,7 +64,7 @@ function ProjectsContent() {
         </div>
         <TaskList taskFilter={taskFilter} />
       </div>
-      <div className="WeekPlanner grid h-full w-fit grid-cols-2 gap-4 text-2xl">
+      <div className="WeekPlanner grid h-full min-h-fit w-fit grid-cols-2 gap-4 text-2xl">
         {weekdays.map((day) => (
           <PlannerCard key={day} cardType={day} />
         ))}

@@ -3,11 +3,13 @@
 import { SquareArrowOutUpRight } from "lucide-react";
 import Link from "next/link";
 import CardWrapper from "~/components/CardWrapper";
-import DragToAdd from "~/components/dragToAdd";
+import AddTaskArea from "~/components/tasks/dragToAdd";
 import TaskListInfo from "~/components/tasks/taskListInfo";
+import { taskData } from "~/lib/taskData";
+
 export default function PlannerCard({ cardType }: { cardType: string }) {
   return (
-    <CardWrapper addClasses="w-[300px] flex flex-col">
+    <CardWrapper addClasses="w-[340px] min-h-[340px] flex flex-col">
       <div className="CardHeader flex w-full items-center justify-between">
         <h2 className="text-2xl font-bold tracking-wide">{cardType}</h2>
         <div className="Goto text-optiiOrange hover:text-optiiTeal">
@@ -19,8 +21,8 @@ export default function PlannerCard({ cardType }: { cardType: string }) {
           </Link>
         </div>
       </div>
-      <TaskListInfo />
-      <DragToAdd />
+      <TaskListInfo tasks={taskData} />
+      <AddTaskArea text="Click to add or drag tasks here" />
     </CardWrapper>
   );
 }

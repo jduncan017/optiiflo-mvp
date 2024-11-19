@@ -3,7 +3,7 @@
 import React from "react";
 import { Folder, Mail, CheckSquare } from "lucide-react";
 import OverviewCard from "./overviewCard";
-import TaskList from "../projects/taskList";
+import TaskList from "../../components/tasks/taskList";
 import ProjectWorkload from "./projectWorkload";
 import WeeklySnapshotCard from "./weeklySnapshot";
 import ProgressMeter from "./progressMeter";
