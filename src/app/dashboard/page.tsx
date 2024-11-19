@@ -3,7 +3,7 @@
 import React from "react";
 import { Folder, Mail, CheckSquare } from "lucide-react";
 import OverviewCard from "./overviewCard";
-import TaskList from "./taskList";
+import TaskList from "../projects/taskList";
 import ProjectWorkload from "./projectWorkload";
 import WeeklySnapshotCard from "./weeklySnapshot";
 import ProgressMeter from "./progressMeter";
@@ -33,9 +33,11 @@ export default function MyWeekPage() {
         />
       </div>
 
-      <div className="BottomSectionContainer grid flex-1 grid-cols-1 gap-6 overflow-hidden lg:grid-cols-3">
-        <TaskList />
-        <div className="flex h-full flex-col space-y-6 overflow-hidden">
+      <div className="BottomSectionContainer grid w-full flex-1 grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="TaskListContainer flex h-full flex-grow">
+          <TaskList taskFilter="Unscheduled" />
+        </div>
+        <div className="flex h-full flex-col space-y-6">
           <ProgressMeter />
           <ProjectWorkload />
         </div>

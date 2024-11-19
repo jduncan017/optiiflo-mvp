@@ -35,7 +35,7 @@ export default function SidebarComponent() {
   }, [searchParams]);
 
   const menuItems = [
-    { name: "My Week", icon: Home, href: "/myWeek?sidebarOpen=true" },
+    { name: "My Week", icon: Home, href: "/dashboard?sidebarOpen=true" },
     { name: "Bridge", icon: Waypoints, href: "/bridge?sidebarOpen=true" },
     { name: "Projects", icon: Folder, href: "/projects?sidebarOpen=true" },
     { name: "Clients", icon: Users, href: "/clients?sidebarOpen=true" },

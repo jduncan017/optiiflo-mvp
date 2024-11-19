@@ -52,19 +52,21 @@ function ProjectsContent() {
   }, [taskFilter, setTaskFilter]);
 
   return (
-    <div className="Tasks flex flex-grow flex-col gap-4">
-      <div className="TaskFilterButtons grid grid-cols-2 gap-2.5">
-        {taskFilterButtons.map((button) => (
-          <TaskFilterButton
-            key={button}
-            title={button}
-            isSelected={taskFilter === button}
-            setTaskFilter={setTaskFilter}
-          />
-        ))}
+    <div className="Tasks flex flex-grow gap-4">
+      <div className="TaskFilterButtonsContainer flex flex-grow flex-col gap-4">
+        <div className="TaskFilterButtons grid grid-cols-2 gap-2.5">
+          {taskFilterButtons.map((button) => (
+            <TaskFilterButton
+              key={button}
+              title={button}
+              isSelected={taskFilter === button}
+              setTaskFilter={setTaskFilter}
+            />
+          ))}
+        </div>
+        <TaskList taskFilter={taskFilter} />
       </div>
-      <TaskList taskFilter={taskFilter} />
-      <div className="WeekPlanner grid h-full w-fit grid-cols-2 gap-4 text-2xl tracking-widest">
+      <div className="WeekPlanner grid h-full w-fit grid-cols-2 gap-4 text-2xl">
         {weekdays.map((day) => (
           <PlannerCard key={day} cardType={day} />
         ))}
