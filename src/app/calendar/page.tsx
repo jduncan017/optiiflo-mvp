@@ -6,22 +6,22 @@ export default function CalendarPage() {
     {
       name: "Month",
       icon: "",
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
     {
       name: "Week",
       icon: "",
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
     {
       name: "Day",
       icon: "",
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
     {
       name: "Agenda",
       icon: "",
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
   ];
   return (

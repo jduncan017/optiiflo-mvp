@@ -7,7 +7,7 @@ interface TopBarProps {
   titles: {
     name: string;
     icon: React.ReactNode;
-    url: string;
+    onClick: () => void;
   }[];
 }
 
@@ -25,7 +25,10 @@ export default function TopBar({ titles }: TopBarProps) {
             selectedTitle === title.name &&
               "bg-N1 text-black hover:cursor-default hover:bg-N1",
           )}
-          onClick={() => setSelectedTitle(title.name)}
+          onClick={() => {
+            setSelectedTitle(title.name);
+            title.onClick();
+          }}
           key={title.name}
         >
           {title.icon && title.icon}

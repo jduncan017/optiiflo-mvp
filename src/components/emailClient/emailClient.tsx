@@ -18,22 +18,22 @@ export function EmailClientComponent() {
     {
       name: "Unread",
       icon: "",
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
     {
       name: "Clients",
       icon: "",
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
     {
       name: "Prospects",
       icon: "",
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
     {
       name: "Non-Business",
       icon: "",
-      url: "",
+      onClick: () => {},
     },
   ];
 

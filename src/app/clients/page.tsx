@@ -6,22 +6,22 @@ export default function ClientsPage() {
     {
       name: "All Clients",
       icon: "",
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
     {
       name: "Active",
       icon: "",
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
     {
       name: "Inactive",
       icon: "",
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
     {
       name: "Archived",
       icon: "",
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
   ];
   return (

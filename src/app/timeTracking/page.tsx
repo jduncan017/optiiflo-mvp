@@ -7,22 +7,22 @@ export default function MyWeekPage() {
     {
       name: "Time Tracker",
       icon: <Clock />,
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
     {
       name: "Dashboard",
       icon: null,
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
     {
       name: "Reports",
       icon: null,
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
     {
       name: "Projects",
       icon: null,
-      url: "",
+      onClick: () => {}, // eslint-disable-line
     },
   ];
   return (
