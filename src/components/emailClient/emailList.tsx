@@ -24,6 +24,7 @@ interface EmailListProps {
   selectedEmailID?: string;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
+  emailFilter: string;
 }
 
 export default function EmailList({
@@ -31,6 +32,7 @@ export default function EmailList({
   searchQuery,
   setSearchQuery,
   selectedEmailID,
+  emailFilter,
 }: EmailListProps) {
   const filteredEmails = emailData.filter(
     (email) =>
@@ -51,6 +53,12 @@ export default function EmailList({
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
+      </div>
+
+      <div className="EmailListHeader flex items-center justify-between border-b border-G2 bg-G1 px-6 py-2">
+        <p className="EmailFilter text-xs capitalize text-G3">{`Viewing: ${emailFilter}`}</p>
+        <p className="EmailCount text-xs capitalize text-G3">{`${filteredEmails.length} Emails`}</p>
+        <p className="EmailCountSnoozed text-xs capitalize text-G3">{`${filteredEmails.filter((email) => email.snoozed).length} Snoozed`}</p>
       </div>
 
       <ul className="Emails flex-1 overflow-y-auto">

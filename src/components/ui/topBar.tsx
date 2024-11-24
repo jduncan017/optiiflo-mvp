@@ -15,7 +15,7 @@ export default function TopBar({ titles }: TopBarProps) {
   const [selectedTitle, setSelectedTitle] = useState(titles[0]?.name ?? "");
 
   return (
-    <div className="TopBar flex w-full items-center justify-start gap-3 bg-S3 px-8 py-5 text-white shadow-optii">
+    <div className="TopBar flex w-full items-center justify-start gap-3 bg-S3 px-8 py-5 text-white shadow-sm">
       {titles.map((title) => (
         <Button
           variant={selectedTitle === title.name ? "selected" : "ghost"}

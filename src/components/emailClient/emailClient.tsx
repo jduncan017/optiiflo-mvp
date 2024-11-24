@@ -9,6 +9,7 @@ import TopBar from "../ui/topBar";
 export function EmailClientComponent() {
   const [selectedEmail, setSelectedEmail] = useState<Email | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTab, setSelectedTab] = useState("unread");
 
   function selectEmail(email: Email) {
     setSelectedEmail(email);
@@ -18,24 +19,26 @@ export function EmailClientComponent() {
     {
       name: "Unread",
       icon: "",
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => setSelectedTab("unread"),
     },
     {
       name: "Clients",
       icon: "",
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => setSelectedTab("clients"),
     },
     {
       name: "Prospects",
       icon: "",
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => setSelectedTab("prospects"),
     },
     {
       name: "Non-Business",
       icon: "",
-      onClick: () => {},
+      onClick: () => setSelectedTab("non-business"),
     },
   ];
+
+  console.log(selectedTab);
 
   return (
     <div className="EmailClient flex h-full w-full bg-G1">
@@ -45,6 +48,7 @@ export function EmailClientComponent() {
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         selectedEmailID={selectedEmail?.messageId}
+        emailFilter={selectedTab}
       />
       {/* Email Content Window */}
       <div className="flex w-full flex-col">

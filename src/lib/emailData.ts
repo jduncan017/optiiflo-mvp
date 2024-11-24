@@ -10,6 +10,7 @@ const emailData = [
     attachments: [],
     isRead: false,
     priority: "normal",
+    snoozed: false,
     messageId: "<1a2b3c4d5e6f7g8h9i0j@example.com>",
   },
   {
@@ -23,6 +24,7 @@ const emailData = [
     attachments: [],
     isRead: true,
     priority: "high",
+    snoozed: false,
     messageId: "<2b3c4d5e6f7g8h9i0j1a@example.com>",
   },
   {
@@ -36,6 +38,7 @@ const emailData = [
     attachments: [],
     isRead: false,
     priority: "normal",
+    snoozed: false,
     messageId: "<3c4d5e6f7g8h9i0j1a2b@example.com>",
   },
   {
@@ -49,6 +52,7 @@ const emailData = [
     attachments: [],
     isRead: true,
     priority: "normal",
+    snoozed: false,
     messageId: "<4d5e6f7g8h9i0j1a2b3c@example.com>",
   },
   {
@@ -62,6 +66,7 @@ const emailData = [
     attachments: [],
     isRead: false,
     priority: "high",
+    snoozed: true,
     messageId: "<5e6f7g8h9i0j1a2b3c4d@example.com>",
   },
   {
@@ -75,6 +80,7 @@ const emailData = [
     attachments: [],
     isRead: true,
     priority: "normal",
+    snoozed: true,
     messageId: "<6f7g8h9i0j1a2b3c4d5e@example.com>",
   },
   {
@@ -88,6 +94,7 @@ const emailData = [
     attachments: [],
     isRead: false,
     priority: "low",
+    snoozed: true,
     messageId: "<7g8h9i0j1a2b3c4d5e6f@example.com>",
   },
   {
@@ -101,6 +108,7 @@ const emailData = [
     attachments: [],
     isRead: true,
     priority: "normal",
+    snoozed: true,
     messageId: "<8h9i0j1a2b3c4d5e6f7g@example.com>",
   },
   {
@@ -114,6 +122,7 @@ const emailData = [
     attachments: [],
     isRead: false,
     priority: "normal",
+    snoozed: true,
     messageId: "<9i0j1a2b3c4d5e6f7g8h@example.com>",
   },
   {
@@ -127,6 +136,7 @@ const emailData = [
     attachments: [],
     isRead: true,
     priority: "high",
+    snoozed: false,
     messageId: "<0j1a2b3c4d5e6f7g8h9i@example.com>",
   },
   {
@@ -140,6 +150,7 @@ const emailData = [
     attachments: [],
     isRead: false,
     priority: "normal",
+    snoozed: false,
     messageId: "<1a2b3c4d5e6f7g8h9i0k@example.com>",
   },
   {
@@ -153,6 +164,7 @@ const emailData = [
     attachments: [],
     isRead: true,
     priority: "high",
+    snoozed: false,
     messageId: "<2b3c4d5e6f7g8h9i0k1a@example.com>",
   },
   {
@@ -166,6 +178,7 @@ const emailData = [
     attachments: [],
     isRead: false,
     priority: "normal",
+    snoozed: false,
     messageId: "<3c4d5e6f7g8h9i0k1a2b@example.com>",
   },
   {
@@ -179,6 +192,7 @@ const emailData = [
     attachments: [],
     isRead: true,
     priority: "low",
+    snoozed: false,
     messageId: "<4d5e6f7g8h9i0k1a2b3c@example.com>",
   },
   {
@@ -192,6 +206,7 @@ const emailData = [
     attachments: [],
     isRead: false,
     priority: "normal",
+    snoozed: false,
     messageId: "<5e6f7g8h9i0k1a2b3c4d@example.com>",
   },
   {
@@ -205,6 +220,7 @@ const emailData = [
     attachments: [],
     isRead: true,
     priority: "high",
+    snoozed: false,
     messageId: "<6f7g8h9i0k1a2b3c4d5e@example.com>",
   },
   {
@@ -218,6 +234,7 @@ const emailData = [
     attachments: [],
     isRead: false,
     priority: "normal",
+    snoozed: false,
     messageId: "<7g8h9i0k1a2b3c4d5e6f@example.com>",
   },
   {
@@ -231,6 +248,7 @@ const emailData = [
     attachments: [],
     isRead: true,
     priority: "normal",
+    snoozed: false,
     messageId: "<8h9i0k1a2b3c4d5e6f7g@example.com>",
   },
   {
@@ -244,6 +262,7 @@ const emailData = [
     attachments: [],
     isRead: false,
     priority: "high",
+    snoozed: false,
     messageId: "<9i0k1a2b3c4d5e6f7g8h@example.com>",
   },
   {
@@ -257,6 +276,7 @@ const emailData = [
     attachments: [],
     isRead: true,
     priority: "normal",
+    snoozed: false,
     messageId: "<0k1a2b3c4d5e6f7g8h9i@example.com>",
   },
   {
@@ -270,6 +290,7 @@ const emailData = [
     attachments: [],
     isRead: false,
     priority: "normal",
+    snoozed: false,
     messageId: "<1a2b3c4d5e6f7g8h9i0l@example.com>",
   },
   {
@@ -283,6 +304,7 @@ const emailData = [
     attachments: [],
     isRead: true,
     priority: "high",
+    snoozed: false,
     messageId: "<2b3c4d5e6f7g8h9i0l1a@example.com>",
   },
   {
@@ -296,6 +318,7 @@ const emailData = [
     attachments: [],
     isRead: false,
     priority: "normal",
+    snoozed: false,
     messageId: "<3c4d5e6f7g8h9i0l1a2b@example.com>",
   },
   {
@@ -309,6 +332,7 @@ const emailData = [
     attachments: [],
     isRead: true,
     priority: "normal",
+    snoozed: false,
     messageId: "<4d5e6f7g8h9i0l1a2b3c@example.com>",
   },
 ];
