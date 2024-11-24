@@ -6,22 +6,22 @@ export default function CalendarPage() {
     {
       name: "Month",
       icon: "",
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
     },
     {
       name: "Week",
       icon: "",
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
     },
     {
       name: "Day",
       icon: "",
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
     },
     {
       name: "Agenda",
       icon: "",
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
     },
   ];
   return (

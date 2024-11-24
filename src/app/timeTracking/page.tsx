@@ -7,22 +7,22 @@ export default function MyWeekPage() {
     {
       name: "Time Tracker",
       icon: <Clock />,
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
     },
     {
       name: "Dashboard",
       icon: null,
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
     },
     {
       name: "Reports",
       icon: null,
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
     },
     {
       name: "Projects",
       icon: null,
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
     },
   ];
   return (

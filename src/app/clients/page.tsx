@@ -6,22 +6,22 @@ export default function ClientsPage() {
     {
       name: "All Clients",
       icon: "",
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
     },
     {
       name: "Active",
       icon: "",
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
     },
     {
       name: "Inactive",
       icon: "",
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
     },
     {
       name: "Archived",
       icon: "",
-      onClick: () => {}, // eslint-disable-line
+      onClick: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
     },
   ];
   return (
