@@ -13,7 +13,7 @@ export default function CardWrapper({
   return (
     <div
       className={cn(
-        "CardWrapper shadow-optii rounded-xl border border-gray-400 bg-white px-5 py-4",
+        "CardWrapper border-G2 rounded-xl border bg-white px-5 py-4 shadow-optii",
         addClasses,
       )}
       onClick={onClick}

@@ -11,7 +11,7 @@ import { useCurrentPage } from "~/contexts/currentPageContext";
 
 // Define the sidebar styles using cva
 const sidebarStyles = cva(
-  "Sidebar flex h-full flex-col gap-5 bg-neutral-900 py-8 transition-all duration-300 border-r border-black",
+  "Sidebar flex h-full flex-col gap-5 bg-G5 py-8 transition-all duration-300 border-r border-black",
   {
     variants: {
       isOpen: {
@@ -63,9 +63,9 @@ export default function SidebarComponent() {
           </Button>
         </Link>
       ))}
-      <div className="AccountSettingsContainer mb-4 mt-auto text-white">
+      <div className="AccountSettingsContainer mb-4 mt-auto rounded-md bg-G3 text-white">
         <Button
-          variant="ghost"
+          variant="default"
           className="flex w-full items-center justify-start rounded-sm py-10"
         >
           <Avatar

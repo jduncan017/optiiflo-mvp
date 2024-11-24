@@ -8,12 +8,12 @@ import { cva } from "class-variance-authority";
 
 // Define styles using cva
 const emailListItemStyles = cva(
-  "EmailListItem flex cursor-pointer gap-2 border-b border-neutral-400 p-4",
+  "EmailListItem flex cursor-pointer gap-2 border-b border-G2 p-4",
   {
     variants: {
       selected: {
-        true: "bg-optiiBlue/80",
-        false: "bg-neutral-100 hover:bg-optiiBlue/40",
+        true: "bg-S2/80",
+        false: "bg-N1 hover:bg-S2/40",
       },
     },
   },
@@ -40,13 +40,13 @@ export default function EmailList({
   );
 
   return (
-    <div className="EmailList flex h-full w-[375px] flex-col border-r-4 bg-white">
-      <div className="SearchBarContainer bg-neutral-800">
+    <div className="EmailList flex h-full w-[500px] flex-col border-r-4 bg-white">
+      <div className="SearchBarContainer bg-G5">
         <div className="p-4">
           <SearchBar
             className="SearchBar w-full"
             type="text"
-            placeholder="Search..."
+            placeholder="Search, (CMD + R)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -70,16 +70,12 @@ export default function EmailList({
                     <p className="text-sm font-semibold">
                       {emailNameParse(email.from).name}
                     </p>
-                    <p className="text-xs text-gray-500">{email.subject}</p>
+                    <p className="text-xs text-G4">{email.subject}</p>
                   </div>
                 </div>
-                <p className="text-sm text-gray-500">
-                  {formatDate(email.date)}
-                </p>
+                <p className="text-sm text-G3">{formatDate(email.date)}</p>
               </div>
-              <p className="mt-2 line-clamp-2 text-xs text-gray-500">
-                {email.body}
-              </p>
+              <p className="mt-2 line-clamp-2 text-xs text-G3">{email.body}</p>
             </div>
           </li>
         ))}

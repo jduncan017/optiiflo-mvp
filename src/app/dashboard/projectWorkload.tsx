@@ -28,7 +28,7 @@ export default function ProjectWorkload() {
               <span className="w-16 text-sm">{coworker.name}</span>
               <div className="ml-4 flex-grow">
                 <div
-                  className="h-4 rounded bg-optiiBlue dark:bg-gray-50"
+                  className="bg-S2 h-4 rounded dark:bg-gray-50"
                   style={{
                     width: `${(coworker.projects / maxProjects) * 100}%`,
                   }}

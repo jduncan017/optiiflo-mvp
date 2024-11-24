@@ -18,11 +18,11 @@ export default function OverviewCard({
     <Card className="OverviewCard flex h-full flex-col">
       <CardHeader className="HeaderContiner flex flex-row items-center justify-between pb-8">
         <CardTitle className="Title text-sm font-medium">{title}</CardTitle>
-        <Icon className="Icon mt-0 h-6 w-6 text-optiiOrange dark:text-gray-400" />
+        <Icon className="Icon text-P2 dark:text-G2 mt-0 h-6 w-6" />
       </CardHeader>
       <CardContent className="ContentContainer flex h-full flex-col items-center justify-between">
-        <div className="Number text-4xl font-bold text-optiiTeal">{value}</div>
-        <p className="Description text-xs text-gray-500 dark:text-gray-400">
+        <div className="Number text-S4 text-4xl font-bold">{value}</div>
+        <p className="Description dark:text-G2 text-G3 text-xs">
           {description}
         </p>
       </CardContent>

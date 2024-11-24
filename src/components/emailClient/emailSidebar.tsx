@@ -8,12 +8,12 @@ import { cva } from "class-variance-authority";
 const IconStyles = cva("h-6 w-6", {
   variants: {
     selected: {
-      true: "text-optiiBlue",
-      false: "hover:text-optiiTeal",
+      true: "text-P2 hover:text-P2",
+      false: "hover:text-S4",
     },
     open: {
-      true: "text-optiiBlue",
-      false: "hover:text-optiiTeal",
+      true: "text-P2 hover:text-P2",
+      false: "hover:text-P2",
     },
   },
   defaultVariants: {
@@ -23,7 +23,7 @@ const IconStyles = cva("h-6 w-6", {
 });
 
 const SidebarStyles = cva(
-  "Sidebar flex flex-col w-fit items-center gap-6 bg-optiiTeal px-1.5 py-8 transition-all duration-300 overflow-hidden",
+  "Sidebar flex flex-col w-fit items-center gap-6 bg-S4 px-1.5 py-8 transition-all duration-300 overflow-hidden",
   {
     variants: {
       isOpen: {
@@ -38,12 +38,12 @@ const SidebarStyles = cva(
 );
 
 const ButtonStyles = cva(
-  "h-12 w-full justify-start gap-3 text-white hover:bg-white hover:text-optiiTeal",
+  "h-12 w-full justify-start gap-3 text-white hover:bg-white hover:shadow-optii hover:text-S4",
   {
     variants: {
       selected: {
-        true: "text-optiiBlue",
-        false: "hover:bg-white hover:text-optiiTeal",
+        true: "text-P2 hover:text-P2 hover:bg-G1 shadow-optii bg-G1 cursor-default",
+        false: "hover:bg-white hover:text-S4",
       },
     },
     defaultVariants: {
@@ -125,7 +125,7 @@ export default function EmailSidebar() {
         <li className="relative w-full px-4">
           <Button
             variant="ghost"
-            className="h-12 w-full justify-start gap-3 text-white hover:bg-white hover:text-optiiTeal"
+            className="h-12 w-full justify-start gap-3 text-white hover:bg-white hover:text-S4"
             onClick={() => {
               setIsOpen(!isOpen);
             }}

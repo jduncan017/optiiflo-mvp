@@ -10,7 +10,7 @@ import ProgressMeter from "./progressMeter";
 
 export default function MyWeekPage() {
   return (
-    <div className="OuterContainer flex h-full w-full flex-col overflow-hidden bg-gray-100 p-6">
+    <div className="OuterContainer bg-G1 flex h-full w-full flex-col overflow-hidden p-6">
       <div className="TopSectionContainer mb-6 grid h-[200px] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <OverviewCard
           icon={Folder}

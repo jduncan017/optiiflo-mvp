@@ -5,6 +5,7 @@ import type { Email } from "~/lib/emailData";
 import EmailSidebar from "./emailSidebar";
 import EmailContent from "./emailContent";
 import EmailList from "./emailList";
+import TopBar from "../ui/topBar";
 export function EmailClientComponent() {
   const [selectedEmail, setSelectedEmail] = useState<Email | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -13,8 +14,31 @@ export function EmailClientComponent() {
     setSelectedEmail(email);
   }
 
+  const topBarTitles = [
+    {
+      name: "Unread",
+      icon: "",
+      url: "",
+    },
+    {
+      name: "Clients",
+      icon: "",
+      url: "",
+    },
+    {
+      name: "Prospects",
+      icon: "",
+      url: "",
+    },
+    {
+      name: "Non-Business",
+      icon: "",
+      url: "",
+    },
+  ];
+
   return (
-    <div className="EmailClient flex h-full w-full bg-gray-100">
+    <div className="EmailClient flex h-full w-full bg-G1">
       <EmailSidebar />
       <EmailList
         selectEmail={selectEmail}
@@ -23,7 +47,10 @@ export function EmailClientComponent() {
         selectedEmailID={selectedEmail?.messageId}
       />
       {/* Email Content Window */}
-      {selectedEmail && <EmailContent email={selectedEmail} />}
+      <div className="flex w-full flex-col">
+        <TopBar titles={topBarTitles} />
+        {selectedEmail && <EmailContent email={selectedEmail} />}
+      </div>
     </div>
   );
 }

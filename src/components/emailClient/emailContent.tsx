@@ -27,7 +27,7 @@ export default function EmailContent({ email }: EmailContentProps) {
   };
 
   return (
-    <div className="ContentWindow m-6 h-fit flex-1 rounded-lg border-gray-400 bg-white p-6">
+    <div className="ContentWindow border-G2 m-6 h-fit flex-1 rounded-lg bg-white p-6">
       <div className="HeaderSection mb-6">
         <div className="EmailHeader flex items-start justify-between gap-2">
           <div className="From/To flex gap-2 leading-none">
@@ -37,12 +37,12 @@ export default function EmailContent({ email }: EmailContentProps) {
                 <p className="SenderName text-lg font-semibold leading-none">
                   {senderName && `${senderName}`}
                 </p>
-                <p className="To text-sm text-gray-500">{`to ${to}`}</p>
+                <p className="To text-G3 text-sm">{`to ${to}`}</p>
               </div>
-              <p className="SenderEmail text-sm text-gray-500">{senderEmail}</p>
+              <p className="SenderEmail text-G3 text-sm">{senderEmail}</p>
             </div>
           </div>
-          <p className="Date text-sm text-gray-500">{formattedDate}</p>
+          <p className="Date text-G3 text-sm">{formattedDate}</p>
         </div>
 
         {hasAttachments && (

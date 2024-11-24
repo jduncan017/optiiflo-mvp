@@ -21,7 +21,7 @@ export function NavigationBar() {
   };
 
   return (
-    <div className="NavigationBar flex w-full items-center justify-between gap-5 border-b border-neutral-800 bg-white px-7 py-2">
+    <div className="NavigationBar relative z-10 flex w-full items-center justify-between gap-5 bg-white px-7 py-2 shadow-optii">
       <div className="flex items-center gap-5">
         <Button variant="ghost" size="icon" onClick={toggleSidebar}>
           <Menu className="h-7 w-7" />
@@ -33,7 +33,7 @@ export function NavigationBar() {
       <SearchBar
         className="SearchBar border-none bg-transparent text-black"
         type="text"
-        placeholder="Search..."
+        placeholder="Search, (CMD + K)..."
       />
       <div className="RightContainer flex w-fit items-center gap-6">
         <Image
@@ -42,11 +42,11 @@ export function NavigationBar() {
           height={40}
           width={113}
         />
-        <div className="QuickActions flex cursor-pointer items-center gap-2 font-medium hover:text-optiiOrange">
+        <div className="QuickActions flex cursor-pointer items-center gap-2 font-medium hover:text-P2">
           <Clock className="h-6 w-6" />
           <p className="text-sm">Time Tracking</p>
         </div>
-        <Bell className="h-6 w-6 cursor-pointer hover:text-optiiOrange" />
+        <Bell className="h-6 w-6 cursor-pointer hover:text-P2" />
       </div>
     </div>
   );

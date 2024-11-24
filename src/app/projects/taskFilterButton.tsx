@@ -11,8 +11,8 @@ export default function TaskFilterButton({
   setTaskFilter: (title: string) => void;
 }) {
   const buttonStyles = cn({
-    "hover:bg-optiiBlue hover:text-white cursor-pointer": !isSelected,
-    "bg-optiiTeal text-white": isSelected,
+    "hover:bg-S2 hover:text-white cursor-pointer": !isSelected,
+    "bg-S4 text-white": isSelected,
   });
 
   return (

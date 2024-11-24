@@ -1,7 +1,6 @@
 import "~/styles/globals.css";
 import SidebarComponent from "~/components/appSidebar";
 import { NavigationBar } from "~/components/navigationBar";
-import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import { CurrentPageProvider } from "~/contexts/currentPageContext";
 import { Suspense } from "react";
@@ -39,12 +38,14 @@ export const metadata: Metadata = {
   },
 };
 
+import { inter, kumbhSans } from "~/lib/fonts";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
-      <body className="flex h-screen w-full overflow-hidden">
+    <html lang="en" className={`${inter.variable} ${kumbhSans.variable}`}>
+      <body className="font-kumbh flex h-screen w-full overflow-hidden">
         <CurrentPageProvider>
           <div className="SidebarLayoutContainer flex h-full w-full">
             <Suspense fallback={<div>Loading...</div>}>

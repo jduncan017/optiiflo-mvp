@@ -12,7 +12,7 @@ export default function PlannerCard({ cardType }: { cardType: string }) {
     <CardWrapper addClasses="w-[340px] min-h-[340px] flex flex-col">
       <div className="CardHeader flex w-full items-center justify-between">
         <h2 className="text-2xl font-bold tracking-wide">{cardType}</h2>
-        <div className="Goto text-optiiOrange hover:text-optiiTeal">
+        <div className="Goto hover:text-S4 text-P2">
           <Link href={`/myWeek/${cardType}`}>
             <button className="flex cursor-pointer items-center gap-1 p-0">
               <p className="text-sm">Goto</p>

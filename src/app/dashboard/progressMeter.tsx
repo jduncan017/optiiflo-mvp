@@ -8,9 +8,7 @@ export default function ProgressMeter() {
       </CardHeader>
       <CardContent>
         <Progress value={75} className="w-full" />
-        <div className="mt-2 text-center text-sm text-gray-500">
-          75% Complete
-        </div>
+        <div className="text-G3 mt-2 text-center text-sm">75% Complete</div>
       </CardContent>
     </Card>
   );
