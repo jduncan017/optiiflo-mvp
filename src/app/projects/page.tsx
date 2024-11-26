@@ -5,7 +5,19 @@ import TaskList from "../../components/tasks/taskList";
 import { useEffect, Suspense, useCallback } from "react";
 import TopBar from "~/components/ui/topBar";
 
+// Main component
 export default function ProjectsPage() {
+  return (
+    <div className="PageContent flex h-[calc(100vh-theme(spacing.16))] w-full flex-col overflow-hidden bg-G1">
+      <Suspense fallback={<div>Loading...</div>}>
+        <ProjectsWithSearch />
+      </Suspense>
+    </div>
+  );
+}
+
+// Child component that uses search params
+function ProjectsWithSearch() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const taskFilter = searchParams.get("filter") ?? "Unscheduled";
@@ -47,14 +59,12 @@ export default function ProjectsPage() {
   ];
 
   return (
-    <div className="PageContent flex h-[calc(100vh-theme(spacing.16))] w-full flex-col overflow-hidden bg-G1">
-      <Suspense fallback={<div>Loading...</div>}>
-        <TopBar titles={topBarTitles} />
-        <div className="flex-1 overflow-y-auto px-10 pb-10 pt-10">
-          <ProjectsContent taskFilter={taskFilter} />
-        </div>
-      </Suspense>
-    </div>
+    <>
+      <TopBar titles={topBarTitles} />
+      <div className="flex-1 overflow-y-auto px-10 pb-10 pt-10">
+        <ProjectsContent taskFilter={taskFilter} />
+      </div>
+    </>
   );
 }
 
