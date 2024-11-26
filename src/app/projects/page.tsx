@@ -48,12 +48,12 @@ export default function ProjectsPage() {
 
   return (
     <div className="PageContent flex h-[calc(100vh-theme(spacing.16))] w-full flex-col overflow-hidden bg-G1">
-      <TopBar titles={topBarTitles} />
-      <div className="flex-1 overflow-y-auto px-10 pb-10 pt-10">
-        <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <TopBar titles={topBarTitles} />
+        <div className="flex-1 overflow-y-auto px-10 pb-10 pt-10">
           <ProjectsContent taskFilter={taskFilter} />
-        </Suspense>
-      </div>
+        </div>
+      </Suspense>
     </div>
   );
 }
