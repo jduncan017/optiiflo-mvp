@@ -31,7 +31,7 @@ Make sure you have the following installed:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/jduncan017/optiiflo.git
+   git clone https://github.com/jduncan017/optiiflo-mvp.git
    cd optiiflo
    ```
 
