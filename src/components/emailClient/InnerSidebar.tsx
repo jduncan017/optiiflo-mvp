@@ -16,7 +16,7 @@ interface InnerSidebarProps {
 }
 
 const SidebarStyles = cva(
-  "InnerSidebar h-full flex flex-col w-fit items-center gap-6 bg-S5 px-1.5 py-8 transition-all duration-300 overflow-hidden",
+  "InnerSidebar h-full flex flex-col w-fit items-center gap-3 bg-S5 px-1.5 py-8 transition-all duration-300 ",
   {
     variants: {
       isOpen: {
@@ -45,6 +45,21 @@ const ButtonStyles = cva(
   },
 );
 
+const TooltipStyles = cva(
+  "Tooltip fixed ml-[100px] top-1/2 -translate-y-1/2 px-3 py-2 rounded-md bg-G5 text-white text-sm whitespace-nowrap z-50 shadow-lg opacity-0 transition-opacity duration-200",
+  {
+    variants: {
+      show: {
+        true: "group-hover:opacity-100",
+        false: "opacity-0",
+      },
+    },
+    defaultVariants: {
+      show: false,
+    },
+  },
+);
+
 export default function InnerSidebar({
   Buttons,
   selectedButton,
@@ -52,10 +67,10 @@ export default function InnerSidebar({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
+    <div className="SidebarContainer relative">
       <ul className={SidebarStyles({ isOpen })}>
         {Object.entries(Buttons).map(([key, button]) => (
-          <li className={`${key} relative w-full px-4`} key={key}>
+          <li className={`${key} group relative w-full px-4`} key={key}>
             <Button
               variant="ghost"
               className={ButtonStyles({
@@ -72,6 +87,19 @@ export default function InnerSidebar({
                 </p>
               )}
             </Button>
+            {!isOpen && (
+              <div
+                className={TooltipStyles({ show: true })}
+                style={{
+                  position: "absolute",
+                  left: "0%",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                }}
+              >
+                {key}
+              </div>
+            )}
           </li>
         ))}
         <li className="relative w-full px-4">
@@ -89,6 +117,6 @@ export default function InnerSidebar({
           </Button>
         </li>
       </ul>
-    </>
+    </div>
   );
 }
