@@ -2,18 +2,53 @@
 
 import { useState } from "react";
 import type { Email } from "~/lib/emailData";
-import EmailSidebar from "./emailSidebar";
+import InnerSidebar from "./InnerSidebar";
 import EmailContent from "./emailContent";
 import EmailList from "./emailList";
 import TopBar from "../ui/topBar";
+import { Clock, Mail, Pencil, Send, Trash2, Users } from "lucide-react";
 export function EmailClientComponent() {
   const [selectedEmail, setSelectedEmail] = useState<Email | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTab, setSelectedTab] = useState("unread");
+  const [selectedInbox, setSelectedInbox] = useState("Inbox");
 
   function selectEmail(email: Email) {
     setSelectedEmail(email);
   }
+
+  const InnerSidebarButtons = {
+    Inbox: {
+      icon: Mail,
+      action: () => {
+        setSelectedInbox("Inbox");
+      },
+    },
+    Sent: {
+      icon: Send,
+      action: () => {
+        setSelectedInbox("Sent");
+      },
+    },
+    Scheduled: {
+      icon: Clock,
+      action: () => {
+        setSelectedInbox("Scheduled");
+      },
+    },
+    Contacts: {
+      icon: Users,
+      action: () => {
+        setSelectedInbox("Contacts");
+      },
+    },
+    Trash: {
+      icon: Trash2,
+      action: () => {
+        setSelectedInbox("Trash");
+      },
+    },
+  };
 
   const topBarTitles = [
     {
@@ -42,7 +77,10 @@ export function EmailClientComponent() {
 
   return (
     <div className="EmailClient flex h-full w-full bg-G1">
-      <EmailSidebar />
+      <InnerSidebar
+        Buttons={InnerSidebarButtons}
+        selectedButton={selectedInbox}
+      />
       <EmailList
         selectEmail={selectEmail}
         searchQuery={searchQuery}
@@ -52,7 +90,16 @@ export function EmailClientComponent() {
       />
       {/* Email Content Window */}
       <div className="flex w-full flex-col">
-        <TopBar titles={topBarTitles} />
+        <TopBar
+          titles={topBarTitles}
+          addButton={{
+            label: "Compose",
+            onClick: () => {
+              console.log("Compose");
+            },
+            icon: <Pencil className="h-4 w-4" />,
+          }}
+        />
         {selectedEmail && <EmailContent email={selectedEmail} />}
       </div>
     </div>

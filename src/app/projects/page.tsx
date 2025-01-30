@@ -4,7 +4,7 @@ import PlannerCard from "./plannerCard";
 import TaskList from "../../components/tasks/taskList";
 import { useEffect, Suspense, useCallback } from "react";
 import TopBar from "~/components/ui/topBar";
-
+import { Plus } from "lucide-react";
 // Main component
 export default function ProjectsPage() {
   return (
@@ -60,7 +60,16 @@ function ProjectsWithSearch() {
 
   return (
     <>
-      <TopBar titles={topBarTitles} />
+      <TopBar
+        titles={topBarTitles}
+        addButton={{
+          label: "Add Project",
+          onClick: () => {
+            console.log("Add Project");
+          },
+          icon: <Plus className="h-4 w-4" />,
+        }}
+      />
       <div className="flex-1 overflow-y-auto px-10 pb-10 pt-10">
         <ProjectsContent taskFilter={taskFilter} />
       </div>

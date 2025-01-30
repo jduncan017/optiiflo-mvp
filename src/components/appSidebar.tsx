@@ -38,7 +38,7 @@ export default function SidebarComponent() {
     { name: "My Week", icon: Home, href: "/dashboard?sidebarOpen=true" },
     { name: "Bridge", icon: Waypoints, href: "/bridge?sidebarOpen=true" },
     { name: "Projects", icon: Folder, href: "/projects?sidebarOpen=true" },
-    { name: "Clients", icon: Users, href: "/clients?sidebarOpen=true" },
+    { name: "Contacts", icon: Users, href: "/contacts?sidebarOpen=true" },
     { name: "Calendar", icon: Calendar, href: "/calendar?sidebarOpen=true" },
     {
       name: "Time Tracking",
@@ -63,10 +63,10 @@ export default function SidebarComponent() {
           </Button>
         </Link>
       ))}
-      <div className="AccountSettingsContainer mb-4 mt-auto rounded-md bg-G3 text-white">
+      <div className="AccountSettingsContainer mt-auto rounded-md bg-G3 text-white">
         <Button
           variant="default"
-          className="flex w-full items-center justify-start rounded-sm py-10"
+          className="flex w-full items-center gap-6 rounded-sm py-10 text-start"
         >
           <Avatar
             fullName="Joshua Duncan"

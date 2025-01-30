@@ -1,4 +1,4 @@
-import EmailSidebar from "~/components/emailClient/emailSidebar";
+import InnerSidebar from "~/components/emailClient/InnerSidebar";
 
 export default function ProjectsLayout({
   children,
@@ -7,7 +7,7 @@ export default function ProjectsLayout({
 }) {
   return (
     <div className="ProjectsLayout flex h-full w-full overflow-hidden">
-      <EmailSidebar />
+      {/* <InnerSidebar /> */}
       {children}
     </div>
   );

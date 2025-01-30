@@ -37,7 +37,8 @@ export default {
         S1: "#E3F0F2",
         S2: "#A2D9E5",
         S3: "#5197A7",
-        S4: "#0C3842",
+        S4: "#537178",
+        S5: "#0C3842",
       },
       boxShadow: {
         optii: "2px 4px 4px rgba(0, 0, 0, 0.25)",

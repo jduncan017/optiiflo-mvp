@@ -1,6 +1,6 @@
 "use client";
+import { Plus } from "lucide-react";
 import { useState } from "react";
-import EmailSidebar from "~/components/emailClient/emailSidebar";
 import TopBar from "~/components/ui/topBar";
 
 export default function CalendarPage() {
@@ -29,9 +29,17 @@ export default function CalendarPage() {
   ];
   return (
     <div className="EmailClient flex h-full w-full bg-G1">
-      <EmailSidebar />
       <div className="flex h-full w-full flex-col items-center justify-center bg-G1 text-2xl">
-        <TopBar titles={topBarTitles} />
+        <TopBar
+          titles={topBarTitles}
+          addButton={{
+            label: "Add Event",
+            onClick: () => {
+              console.log("Add Event");
+            },
+            icon: <Plus className="h-4 w-4" />,
+          }}
+        />
         <div className="flex h-full w-full items-center justify-center">
           <h2 className="text-4xl font-bold tracking-wide">{selectedTab}</h2>
         </div>

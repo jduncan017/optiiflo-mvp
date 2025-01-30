@@ -45,19 +45,17 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} ${kumbhSans.variable}`}>
-      <body className="font-kumbh flex h-screen w-full overflow-hidden">
+      <body className="flex h-screen w-full overflow-hidden font-kumbh">
         <CurrentPageProvider>
-          <div className="SidebarLayoutContainer flex h-full w-full">
+          <Suspense fallback={<div>Loading...</div>}>
+            <SidebarComponent />
+          </Suspense>
+          <div className="MainContentContainer flex h-full w-full flex-col">
             <Suspense fallback={<div>Loading...</div>}>
-              <SidebarComponent />
+              <NavigationBar />
             </Suspense>
-            <div className="MainContentContainer flex h-screen w-full flex-col">
-              <Suspense fallback={<div>Loading...</div>}>
-                <NavigationBar />
-              </Suspense>
-              <div className="MainContentWindow flex-1 overflow-y-scroll">
-                {children}
-              </div>
+            <div className="MainContentWindow h-full max-h-[calc(100vh-4rem)]">
+              {children}
             </div>
           </div>
         </CurrentPageProvider>
