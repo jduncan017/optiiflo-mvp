@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { Button } from "./button";
-import { cn } from "~/lib/utils";
 
 interface TopBarProps {
   titles: {
@@ -14,23 +13,20 @@ interface TopBarProps {
     icon?: React.ReactNode;
     onClick: () => void;
   };
+  children?: React.ReactNode;
 }
 
-export default function TopBar({ titles, addButton }: TopBarProps) {
+export default function TopBar({ titles, addButton, children }: TopBarProps) {
   const [selectedTitle, setSelectedTitle] = useState(titles[0]?.name ?? "");
 
   return (
-    <div className="TopBar flex w-full items-center justify-between gap-3 bg-S4 px-8 py-5 text-white shadow-sm">
+    <div className="TopBar flex w-full items-center justify-between gap-3 bg-S4 px-8 py-3 text-white shadow-sm">
+      {children}
       <div className="SelectButtons flex gap-3">
         {titles.map((title) => (
           <Button
-            variant={selectedTitle === title.name ? "selected" : "ghost"}
+            variant={selectedTitle === title.name ? "secondarySelected" : "secondary"}
             size="sm"
-            className={cn(
-              "bg-S5 flex items-center gap-2 shadow-optii",
-              selectedTitle === title.name &&
-                "bg-N1 text-black hover:cursor-default hover:bg-N1",
-            )}
             onClick={() => {
               setSelectedTitle(title.name);
               title.onClick();
@@ -44,8 +40,7 @@ export default function TopBar({ titles, addButton }: TopBarProps) {
       </div>
       {addButton && (
         <Button
-          className="bg-S5 flex gap-2 shadow-optii"
-          variant="ghost"
+          variant="secondary"
           size="sm"
           onClick={addButton.onClick}
         >

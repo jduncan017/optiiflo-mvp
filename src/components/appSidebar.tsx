@@ -66,7 +66,7 @@ export default function SidebarComponent() {
       <div className="AccountSettingsContainer mt-auto rounded-md bg-G3 text-white">
         <Button
           variant="default"
-          className="flex w-full items-center gap-6 rounded-sm py-10 text-start"
+          className="flex w-full items-center gap-6 py-10 text-start"
         >
           <Avatar
             fullName="Joshua Duncan"
