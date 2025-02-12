@@ -21,7 +21,7 @@ export function NavigationBar() {
   };
 
   return (
-    <div className="NavigationBar relative z-10 flex w-full items-center justify-between gap-5 bg-white px-7 py-2 shadow-optii">
+    <div className="NavigationBar relative z-10 flex h-[68px] w-full items-center justify-between gap-5 bg-white px-7 py-2 shadow-optii">
       <div className="flex items-center gap-5">
         <Button variant="menu" size="icon" onClick={toggleSidebar}>
           <Menu className="h-7 w-7" />

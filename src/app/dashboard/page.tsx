@@ -10,8 +10,8 @@ import ProgressMeter from "./progressMeter";
 
 export default function MyWeekPage() {
   return (
-    <div className="OuterContainer bg-G1 flex h-full w-full flex-col overflow-hidden p-6">
-      <div className="TopSectionContainer mb-6 grid h-[200px] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <div className="OuterContainer flex h-full w-full flex-col gap-6 bg-G1 p-6">
+      <div className="TopSectionContainer grid h-fit grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         <OverviewCard
           icon={Folder}
           title="Projects"
@@ -33,11 +33,11 @@ export default function MyWeekPage() {
         />
       </div>
 
-      <div className="BottomSectionContainer grid w-full flex-1 grid-cols-1 gap-6 lg:grid-cols-2">
-        <div className="TaskListContainer flex h-full flex-grow">
+      <div className="BottomSectionContainer grid h-full w-full flex-1 grid-cols-1 gap-6 overflow-hidden lg:grid-cols-2">
+        <div className="TaskListContainer flex h-full">
           <TaskList taskFilter="Unscheduled" />
         </div>
-        <div className="flex h-full flex-col space-y-6">
+        <div className="flex h-full flex-col space-y-4">
           <ProgressMeter />
           <ProjectWorkload />
         </div>

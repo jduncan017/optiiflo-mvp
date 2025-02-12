@@ -54,7 +54,7 @@ export default function RootLayout({
             <Suspense fallback={<div>Loading...</div>}>
               <NavigationBar />
             </Suspense>
-            <div className="MainContentWindow h-full max-h-[calc(100vh-4rem)]">
+            <div className="MainContentWindow h-full max-h-[calc(100vh-68px)]">
               {children}
             </div>
           </div>
