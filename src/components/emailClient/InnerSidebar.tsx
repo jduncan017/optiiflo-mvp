@@ -30,21 +30,6 @@ const SidebarStyles = cva(
   },
 );
 
-const ButtonStyles = cva(
-  "h-12 w-full justify-start gap-3 text-white hover:bg-white hover:shadow-optii hover:text-S4",
-  {
-    variants: {
-      selected: {
-        true: "text-P2 hover:text-P2 hover:bg-G1 shadow-optii bg-G1 cursor-default",
-        false: "hover:bg-white hover:text-S4",
-      },
-    },
-    defaultVariants: {
-      selected: false,
-    },
-  },
-);
-
 const TooltipStyles = cva(
   "Tooltip fixed ml-[100px] top-1/2 -translate-y-1/2 px-3 py-2 rounded-md bg-G5 text-white text-sm whitespace-nowrap z-50 shadow-lg opacity-0 transition-opacity duration-200",
   {
@@ -72,10 +57,9 @@ export default function InnerSidebar({
         {Object.entries(Buttons).map(([key, button]) => (
           <li className={`${key} group relative w-full px-4`} key={key}>
             <Button
-              variant="ghost"
-              className={ButtonStyles({
-                selected: key === selectedButton,
-              })}
+              variant={key===selectedButton ? "ghostSelected":"ghost"}
+              size={"icon"}
+              className={"w-full px-4 h-12 justify-start"}
               onClick={() => {
                 button.action();
               }}
@@ -105,7 +89,8 @@ export default function InnerSidebar({
         <li className="relative w-full px-4">
           <Button
             variant="ghost"
-            className="h-12 w-full justify-start gap-3 text-white hover:bg-white hover:text-S4"
+            size="icon"
+            className={"w-full px-4 h-12 justify-start"}
             onClick={() => {
               setIsOpen(!isOpen);
             }}
