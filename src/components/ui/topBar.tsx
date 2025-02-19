@@ -5,7 +5,7 @@ import { Button } from "./button";
 interface TopBarProps {
   titles: {
     name: string;
-    icon: React.ReactNode;
+    icon?: React.ReactNode;
     onClick: () => void;
   }[];
   addButton?: {
@@ -25,7 +25,9 @@ export default function TopBar({ titles, addButton, children }: TopBarProps) {
       <div className="SelectButtons flex gap-3">
         {titles.map((title) => (
           <Button
-            variant={selectedTitle === title.name ? "secondarySelected" : "secondary"}
+            variant={
+              selectedTitle === title.name ? "secondarySelected" : "secondary"
+            }
             size="sm"
             onClick={() => {
               setSelectedTitle(title.name);
@@ -39,11 +41,7 @@ export default function TopBar({ titles, addButton, children }: TopBarProps) {
         ))}
       </div>
       {addButton && (
-        <Button
-          variant="secondary"
-          size="sm"
-          onClick={addButton.onClick}
-        >
+        <Button variant="secondary" size="sm" onClick={addButton.onClick}>
           {addButton.icon && addButton.icon}
           <p className="text-sm font-medium">{addButton.label}</p>
         </Button>

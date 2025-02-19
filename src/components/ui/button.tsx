@@ -9,21 +9,22 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-G3 px-4 py-2 text-gray-50 hover:bg-S5",
-        selected: "bg-S5 text-white hover:bg-S5 cursor-default",
+        default: " px-4 py-2 text-gray-50 hover:bg-G3 hover:shadow-optii",
+        selected: "bg-S3 text-white hover:bg-S3 cursor-default shadow-optii",
         destructive: "bg-red-500 text-gray-50 hover:bg-red-400",
         secondary: "bg-S5 flex item-center gap-2 shadow-optii hover:bg-P2",
         secondarySelected: "bg-N1 text-black hover:cursor-default",
         ghost: "hover:bg-white hover:text-S4 hover:shadow-optii text-white",
-        ghostSelected: "text-P2 hover:text-P2 hover:bg-G1 shadow-optii bg-G1 cursor-default",
-        menu: "hover:bg-P2 hover:text-N1"
+        ghostSelected:
+          "text-P2 hover:text-P2 hover:bg-G1 shadow-optii bg-G1 cursor-default",
+        menu: "hover:bg-P2 hover:text-N1",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-12 rounded-md px-8",
         icon: "p-3 w-fit",
-        smIcon: "p-2 w-fit"
+        smIcon: "p-2 w-fit",
       },
     },
     defaultVariants: {

@@ -12,7 +12,7 @@ interface IconConfig {
 
 interface InnerSidebarProps {
   Buttons: Record<string, IconConfig>;
-  selectedButton: string;
+  selectedButton: string | null;
 }
 
 const SidebarStyles = cva(
@@ -57,9 +57,9 @@ export default function InnerSidebar({
         {Object.entries(Buttons).map(([key, button]) => (
           <li className={`${key} group relative w-full px-4`} key={key}>
             <Button
-              variant={key===selectedButton ? "ghostSelected":"ghost"}
+              variant={key === selectedButton ? "ghostSelected" : "ghost"}
               size={"icon"}
-              className={"w-full px-4 h-12 justify-start"}
+              className={"h-12 w-full justify-start px-4"}
               onClick={() => {
                 button.action();
               }}
@@ -90,7 +90,7 @@ export default function InnerSidebar({
           <Button
             variant="ghost"
             size="icon"
-            className={"w-full px-4 h-12 justify-start"}
+            className={"h-12 w-full justify-start px-4"}
             onClick={() => {
               setIsOpen(!isOpen);
             }}

@@ -27,3 +27,12 @@ export type Organization = {
   website: string;
   createdAt: string;
 };
+
+export interface Contact {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  company?: string;
+  // Add any other contact fields you need
+}

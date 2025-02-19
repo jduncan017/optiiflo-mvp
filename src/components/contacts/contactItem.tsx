@@ -5,8 +5,10 @@ import Avatar from "~/components/ui/avatar";
 
 export default function ContactItem({
   contact,
+  onContactSelect,
 }: {
   contact: Organization | Individual;
+  onContactSelect: (contact: Organization | Individual) => void;
 }) {
   const contactName =
     "name" in contact
@@ -16,7 +18,10 @@ export default function ContactItem({
   return (
     <ListItemWrapper>
       <div className="ContactItem flex w-full items-center justify-between gap-2">
-        <div className="ContactInfoContainer flex w-fit items-center gap-2 hover:text-P2 hover:underline">
+        <div
+          className="ContactInfoContainer flex w-fit items-center gap-2 hover:text-P2 hover:underline"
+          onClick={() => onContactSelect(contact)}
+        >
           <Avatar className="h-9 w-9" fullName={contactName} />
           <p className="ContactName cursor-pointer font-bold">{contactName}</p>
           <div className="ContactButtonContainer hover:text-P2">
