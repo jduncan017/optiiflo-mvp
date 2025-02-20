@@ -2,6 +2,10 @@ import type { Organization, Individual } from "~/types/types";
 import TopBar from "../ui/topBar";
 import { Button } from "../ui/button";
 import { ArrowLeft, Plus } from "lucide-react";
+import ClientInfo from "./ClientInfo";
+import UpcomingDue from "./UpcomingDueDates";
+import ActiveProjects from "./ActiveProjects";
+import Attachments from "./Attachments";
 
 interface ContactOverviewProps {
   contact: Organization | Individual;
@@ -39,8 +43,17 @@ export default function ContactOverview({
           Back
         </Button>
       </TopBar>
-      <div className="ContactOverview flex h-full w-full items-center justify-center bg-G1">
-        <h1>{name}</h1>
+      <div className="Layout flex h-full w-full flex-col gap-4 p-4">
+        <div className="grid h-full w-full grid-cols-[40%_60%] gap-4">
+          <ClientInfo />
+
+          <UpcomingDue />
+        </div>
+        <div className="grid h-full w-full grid-cols-[60%_40%] gap-4">
+          <ActiveProjects />
+
+          <Attachments />
+        </div>
       </div>
     </div>
   );
