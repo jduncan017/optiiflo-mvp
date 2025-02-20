@@ -45,17 +45,23 @@ export default function ContactOverview({
           Back
         </Button>
       </TopBar>
-      <div className="grid grid-cols-2 gap-4 w-full h-full p-4">
+        <div className="grid grid-cols-[40%_60%] gap-4 w-full h-full p-4 pr-8">
 
           <ClientInfo/> 
-          
+
           <UpcomingDue/>
+
+        </div>
+        <div className="grid grid-cols-[60%_40%] gap-4 w-full h-full p-4 pr-8">
 
           <ActiveProjects/>
 
-          <Attachments/>
+         <Attachments/>
 
-          </div>
+        </div>
       </div>
+      
+    
+    
   );
 }
