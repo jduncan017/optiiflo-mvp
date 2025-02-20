@@ -35,8 +35,6 @@ export default function ContactOverview({
     icon: <Plus className="h-4 w-4" />,
   };
 
- 
-
   return (
     <div className="ContactOverviewContent flex h-full w-full flex-col bg-G1">
       <TopBar titles={topBarTitles} addButton={addButton}>
@@ -45,23 +43,18 @@ export default function ContactOverview({
           Back
         </Button>
       </TopBar>
-        <div className="grid grid-cols-[40%_60%] gap-4 w-full h-full p-4 pr-8">
+      <div className="Layout flex h-full w-full flex-col gap-4 p-4">
+        <div className="grid h-full w-full grid-cols-[40%_60%] gap-4">
+          <ClientInfo />
 
-          <ClientInfo/> 
-
-          <UpcomingDue/>
-
+          <UpcomingDue />
         </div>
-        <div className="grid grid-cols-[60%_40%] gap-4 w-full h-full p-4 pr-8">
+        <div className="grid h-full w-full grid-cols-[60%_40%] gap-4">
+          <ActiveProjects />
 
-          <ActiveProjects/>
-
-         <Attachments/>
-
+          <Attachments />
         </div>
       </div>
-      
-    
-    
+    </div>
   );
 }
