@@ -6,7 +6,7 @@ import { Home, Calendar, Users, Clock, Folder, Waypoints } from "lucide-react";
 import { cva } from "class-variance-authority";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useCurrentPage } from "~/contexts/currentPageContext";
 import { usePathname } from "next/navigation";
 
@@ -26,15 +26,19 @@ const sidebarStyles = cva(
   },
 );
 
-export default function SidebarComponent() {
-  // const searchParams = useSearchParams();
+function SidebarSkeleton() {
+  return <div className="Sidebar h-full w-0 border-r border-black bg-G5" />;
+}
+
+function SidebarContent() {
+  const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const { setCurrentPage } = useCurrentPage();
   const pathName = usePathname().split("/").pop();
 
-  // useEffect(() => {
-  //   setIsOpen(searchParams.get("sidebarOpen") === "true");
-  // }, [searchParams]);
+  useEffect(() => {
+    setIsOpen(searchParams.get("sidebarOpen") === "true");
+  }, [searchParams]);
 
   const menuItems = [
     { name: "Dashboard", icon: Home, href: "/dashboard?sidebarOpen=true" },
@@ -88,5 +92,13 @@ export default function SidebarComponent() {
         </Button>
       </div>
     </div>
+  );
+}
+
+export default function SidebarComponent() {
+  return (
+    <Suspense fallback={<SidebarSkeleton />}>
+      <SidebarContent />
+    </Suspense>
   );
 }

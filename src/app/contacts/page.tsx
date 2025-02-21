@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState } from "react";
 import InnerSidebar from "~/components/emailClient/InnerSidebar";
 import ContactOverview from "~/components/contacts/ContactOverview";
 import { Store, User, BriefcaseBusiness } from "lucide-react";
@@ -9,14 +9,6 @@ import ContactList from "~/components/contacts/ContactList";
 import { useCurrentPage } from "~/contexts/currentPageContext";
 
 export default function ContactsPage() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <ContactsContent />
-    </Suspense>
-  );
-}
-
-function ContactsContent() {
   const { setCurrentPage } = useCurrentPage();
   const [selectedContactType, setSelectedContactType] = useState<string | null>(
     "Organizations",

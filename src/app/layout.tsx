@@ -1,5 +1,5 @@
 import "~/styles/globals.css";
-import SidebarComponent from "~/components/appSidebar";
+import AppSidebar from "~/components/appSidebar";
 import { NavigationBar } from "~/components/navigationBar";
 import { type Metadata } from "next";
 import { CurrentPageProvider } from "~/contexts/currentPageContext";
@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Optiiflo MVP",
   description:
     "An innovative CPA firm management application designed to streamline workflows and enhance project management.",
+  metadataBase: new URL("https://mvp.optiiflo.com"),
   icons: [{ rel: "icon", url: "/favicon.ico" }],
   keywords: [
     "Optiiflo",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     title: "Optiiflo MVP",
     description:
       "An innovative CPA firm management application designed to streamline workflows and enhance project management.",
-    // url: "https://www.optiiflo.com",
+    url: "https://mvp.optiiflo.com",
     type: "website",
     images: [
       {
@@ -49,15 +50,21 @@ export default function RootLayout({
       <body className="flex h-screen w-full overflow-hidden font-kumbh">
         <ModalProvider>
           <CurrentPageProvider>
-            <Suspense fallback={<div>Loading...</div>}>
-              <SidebarComponent />
-              <div className="MainContentContainer flex h-full w-full flex-col">
-                {/* <NavigationBar /> */}
-                <div className="MainContentWindow h-full max-h-[calc(100vh-68px)]">
+            <AppSidebar />
+            <div className="MainContentContainer flex h-full w-full flex-col">
+              <NavigationBar />
+              <div className="MainContentWindow h-full max-h-[calc(100vh-68px)]">
+                <Suspense
+                  fallback={
+                    <div className="flex h-full w-full items-center justify-center bg-G1">
+                      <div className="text-lg">Loading...</div>
+                    </div>
+                  }
+                >
                   {children}
-                </div>
+                </Suspense>
               </div>
-            </Suspense>
+            </div>
           </CurrentPageProvider>
         </ModalProvider>
       </body>

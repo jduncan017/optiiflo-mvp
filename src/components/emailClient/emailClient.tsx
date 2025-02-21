@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 import type { Email } from "~/lib/emailData";
-import InnerSidebar from "./InnerSidebar";
 import EmailContent from "./emailContent";
 import EmailList from "./emailList";
 import TopBar from "../ui/topBar";
-import { Clock, Mail, Pencil, Send, Trash2, Users } from "lucide-react";
+import { Pencil } from "lucide-react";
 export function EmailClientComponent() {
   const [selectedEmail, setSelectedEmail] = useState<Email | null>(null);
   const [searchQuery, setSearchQuery] = useState("");

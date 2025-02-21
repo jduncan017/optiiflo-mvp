@@ -2,7 +2,8 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
-import { useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
+
 interface CurrentPageContextProps {
   currentPage: string;
   setCurrentPage: (currentPage: string) => void;
@@ -14,14 +15,14 @@ const CurrentPageContext = createContext<CurrentPageContextProps | undefined>(
 
 export const CurrentPageProvider = ({ children }: { children: ReactNode }) => {
   const [currentPage, setCurrentPage] = useState("Dashboard");
-  const searchParams = useSearchParams();
+  const pathname = usePathname();
 
-  // useEffect(() => {
-  //   const pageRoute = searchParams.get("currentPage");
-  //   if (pageRoute) {
-  //     setCurrentPage(pageRoute);
-  //   }
-  // }, [searchParams]);
+  useEffect(() => {
+    const page = pathname.split("/")[1];
+    if (page) {
+      setCurrentPage(page.charAt(0).toUpperCase() + page.slice(1));
+    }
+  }, [pathname]);
 
   return (
     <CurrentPageContext.Provider value={{ currentPage, setCurrentPage }}>
