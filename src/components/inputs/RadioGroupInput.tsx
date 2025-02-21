@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { cn } from "~/lib/utils";
-import * as RadioGroup from "@radix-ui/react-radio-group";
+import { RadioGroup } from "radix-ui";
 import InfoDialogue from "./InfoDialogue";
 
 interface RadioOption {

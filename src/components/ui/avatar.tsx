@@ -26,7 +26,7 @@ export default function Avatar({
   return (
     <div
       className={cn(
-        "Avatar bg-P2 relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full text-xs font-medium tracking-wider text-white",
+        "Avatar relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-P2 text-xs font-medium tracking-wider text-white",
         className,
       )}
       {...props}

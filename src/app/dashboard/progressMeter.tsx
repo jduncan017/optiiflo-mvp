@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
-import { Progress } from "~/components/ui/progress";
+import { ProgressComponent } from "~/components/ui/progress";
+
 export default function ProgressMeter() {
   return (
     <Card>
@@ -7,8 +8,8 @@ export default function ProgressMeter() {
         <CardTitle>Progress Meter</CardTitle>
       </CardHeader>
       <CardContent>
-        <Progress value={75} className="w-full" />
-        <div className="text-G3 mt-2 text-center text-sm">75% Complete</div>
+        <ProgressComponent value={75} className="w-full" />
+        <div className="mt-2 text-center text-sm text-G3">75% Complete</div>
       </CardContent>
     </Card>
   );

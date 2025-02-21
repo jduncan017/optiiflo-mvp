@@ -6,7 +6,7 @@ import React, {
   useState,
   type ReactNode,
 } from "react";
-import * as Dialog from "@radix-ui/react-dialog";
+import { Dialog } from "radix-ui";
 import ModalWrapper from "~/components/modals/modalWrapper";
 
 interface ModalContextType {
