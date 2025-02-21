@@ -17,7 +17,7 @@ export default function TaskFilterButton({
 
   return (
     <div className="TaskFilterButton" onClick={() => setTaskFilter(title)}>
-      <CardWrapper addClasses={buttonStyles}>
+      <CardWrapper className={buttonStyles}>
         <p className="TaskFilterButtonTitle font-semibold">{title}</p>
         <p className="TaskFilterButtonCount text-xl font-semibold">0</p>
       </CardWrapper>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, ArrowLeft } from "lucide-react";
 import { cva } from "class-variance-authority";
 
 interface IconConfig {
@@ -16,12 +16,12 @@ interface InnerSidebarProps {
 }
 
 const SidebarStyles = cva(
-  "InnerSidebar h-full flex flex-col w-fit items-center gap-3 bg-S5 px-1.5 py-8 transition-all duration-300 ",
+  "InnerSidebar h-full flex flex-col w-fit px-4 gap-3 bg-S5 px-1.5 py-8 transition-all duration-300 ",
   {
     variants: {
       isOpen: {
         true: "min-w-[240px]",
-        false: "min-w-[100px]",
+        false: "min-w-[80px]",
       },
     },
     defaultVariants: {
@@ -31,7 +31,7 @@ const SidebarStyles = cva(
 );
 
 const TooltipStyles = cva(
-  "Tooltip fixed ml-[100px] top-1/2 -translate-y-1/2 px-3 py-2 rounded-md bg-G5 text-white text-sm whitespace-nowrap z-50 shadow-lg opacity-0 transition-opacity duration-200",
+  "Tooltip fixed ml-[80px] pointer-events-none top-1/2 -translate-y-1/2 px-3 py-2 rounded-md bg-G5 text-white text-sm whitespace-nowrap z-50 shadow-lg opacity-0 transition-opacity duration-200",
   {
     variants: {
       show: {
@@ -52,10 +52,13 @@ export default function InnerSidebar({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="SidebarContainer relative">
+    <div className="SidebarContainer relative h-full">
       <ul className={SidebarStyles({ isOpen })}>
         {Object.entries(Buttons).map(([key, button]) => (
-          <li className={`${key} group relative w-full px-4`} key={key}>
+          <li
+            className={`${key} group relative ${isOpen ? "w-full" : "w-fit"}`}
+            key={key}
+          >
             <Button
               variant={key === selectedButton ? "ghostSelected" : "ghost"}
               size={"icon"}
@@ -86,7 +89,7 @@ export default function InnerSidebar({
             )}
           </li>
         ))}
-        <li className="relative w-full px-4">
+        <li className={`group relative ${isOpen ? "w-full" : "w-fit"}`}>
           <Button
             variant="ghost"
             size="icon"
@@ -95,11 +98,30 @@ export default function InnerSidebar({
               setIsOpen(!isOpen);
             }}
           >
-            <Menu className="h-6 w-6" />
+            {isOpen ? (
+              <ArrowLeft className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
             {isOpen && (
-              <p className="absolute left-[70px] text-lg font-medium">Menu</p>
+              <p className="absolute left-[70px] text-lg font-medium">
+                {isOpen ? "Close" : "Menu"}
+              </p>
             )}
           </Button>
+          {!isOpen && (
+            <div
+              className={TooltipStyles({ show: true })}
+              style={{
+                position: "absolute",
+                left: "0%",
+                top: "50%",
+                transform: "translateY(-50%)",
+              }}
+            >
+              Menu
+            </div>
+          )}
         </li>
       </ul>
     </div>

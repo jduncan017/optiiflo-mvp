@@ -51,15 +51,13 @@ export default function RootLayout({
           <CurrentPageProvider>
             <Suspense fallback={<div>Loading...</div>}>
               <SidebarComponent />
-            </Suspense>
-            <div className="MainContentContainer flex h-full w-full flex-col">
-              <Suspense fallback={<div>Loading...</div>}>
-                <NavigationBar />
-              </Suspense>
-              <div className="MainContentWindow h-full max-h-[calc(100vh-68px)]">
-                {children}
+              <div className="MainContentContainer flex h-full w-full flex-col">
+                {/* <NavigationBar /> */}
+                <div className="MainContentWindow h-full max-h-[calc(100vh-68px)]">
+                  {children}
+                </div>
               </div>
-            </div>
+            </Suspense>
           </CurrentPageProvider>
         </ModalProvider>
       </body>

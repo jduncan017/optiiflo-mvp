@@ -3,18 +3,18 @@ import { cn } from "~/lib/utils";
 
 export default function CardWrapper({
   children,
-  addClasses,
+  className,
   onClick,
 }: {
   children: ReactNode;
-  addClasses?: string;
+  className?: string;
   onClick?: () => void;
 }) {
   return (
     <div
       className={cn(
-        "CardWrapper border-G2 rounded-xl border bg-white px-5 py-4 shadow-optii",
-        addClasses,
+        "CardWrapper rounded-xl border border-G2 bg-white px-5 py-4 shadow-optii",
+        className,
       )}
       onClick={onClick}
     >

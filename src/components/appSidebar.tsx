@@ -27,14 +27,14 @@ const sidebarStyles = cva(
 );
 
 export default function SidebarComponent() {
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const { setCurrentPage } = useCurrentPage();
   const pathName = usePathname().split("/").pop();
 
-  useEffect(() => {
-    setIsOpen(searchParams.get("sidebarOpen") === "true");
-  }, [searchParams]);
+  // useEffect(() => {
+  //   setIsOpen(searchParams.get("sidebarOpen") === "true");
+  // }, [searchParams]);
 
   const menuItems = [
     { name: "Dashboard", icon: Home, href: "/dashboard?sidebarOpen=true" },
@@ -49,6 +49,10 @@ export default function SidebarComponent() {
     },
   ];
 
+  function formatPageName(name: string) {
+    return name.toLowerCase().replace(" ", "");
+  }
+
   return (
     <div className={sidebarStyles({ isOpen })}>
       {menuItems.map((item) => (
@@ -56,7 +60,9 @@ export default function SidebarComponent() {
           <Button
             key={item.name}
             variant={
-              pathName === item.name.toLowerCase() ? "selected" : "default"
+              pathName?.toLowerCase() === formatPageName(item.name)
+                ? "selected"
+                : "default"
             }
             size="lg"
             className="w-full text-nowrap"
@@ -67,17 +73,18 @@ export default function SidebarComponent() {
           </Button>
         </Link>
       ))}
-      <div className="AccountSettingsContainer mt-auto border-t border-G4 pt-2">
+      <div className="AccountSettingsContainer mt-auto border-t border-G4 pt-4">
         <Button
           variant="ghost"
-          className="flex w-full items-center justify-center gap-4 py-10 text-start leading-5"
+          className="flex w-full items-center justify-center gap-4 text-start leading-5"
+          size="lg"
         >
           <Avatar
             fullName="Joshua Duncan"
-            className="h-12 w-12"
+            className="h-8 w-8"
             src="/josh-small.jpeg"
           />
-          Account Settings
+          Settings
         </Button>
       </div>
     </div>

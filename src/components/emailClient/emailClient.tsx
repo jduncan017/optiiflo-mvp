@@ -11,44 +11,10 @@ export function EmailClientComponent() {
   const [selectedEmail, setSelectedEmail] = useState<Email | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTab, setSelectedTab] = useState("unread");
-  const [selectedInbox, setSelectedInbox] = useState("Inbox");
 
   function selectEmail(email: Email) {
     setSelectedEmail(email);
   }
-
-  const InnerSidebarButtons = {
-    Inbox: {
-      icon: Mail,
-      action: () => {
-        setSelectedInbox("Inbox");
-      },
-    },
-    Sent: {
-      icon: Send,
-      action: () => {
-        setSelectedInbox("Sent");
-      },
-    },
-    Scheduled: {
-      icon: Clock,
-      action: () => {
-        setSelectedInbox("Scheduled");
-      },
-    },
-    Contacts: {
-      icon: Users,
-      action: () => {
-        setSelectedInbox("Contacts");
-      },
-    },
-    Trash: {
-      icon: Trash2,
-      action: () => {
-        setSelectedInbox("Trash");
-      },
-    },
-  };
 
   const topBarTitles = [
     {
@@ -76,11 +42,7 @@ export function EmailClientComponent() {
   console.log(selectedTab);
 
   return (
-    <div className="EmailClient flex h-full w-full bg-G1">
-      <InnerSidebar
-        Buttons={InnerSidebarButtons}
-        selectedButton={selectedInbox}
-      />
+    <div className="EmailClient relative z-[1] flex h-full w-full bg-G1">
       <EmailList
         selectEmail={selectEmail}
         searchQuery={searchQuery}

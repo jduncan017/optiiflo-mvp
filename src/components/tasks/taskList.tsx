@@ -7,7 +7,7 @@ import { taskData } from "~/lib/taskData";
 
 export default function TaskList({ taskFilter }: { taskFilter: string }) {
   return (
-    <CardWrapper addClasses="w-full h-full flex-grow flex flex-col">
+    <CardWrapper className="flex h-full w-full flex-grow flex-col">
       <h2 className="TaskListTitle mb-1 text-2xl font-semibold">
         {taskFilter}
       </h2>

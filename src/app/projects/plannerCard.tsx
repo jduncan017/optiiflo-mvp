@@ -9,10 +9,10 @@ import { taskData } from "~/lib/taskData";
 
 export default function PlannerCard({ cardType }: { cardType: string }) {
   return (
-    <CardWrapper addClasses="w-[340px] min-h-[340px] flex flex-col">
+    <CardWrapper className="flex min-h-[340px] w-[340px] flex-col">
       <div className="CardHeader flex w-full items-center justify-between">
         <h2 className="text-2xl font-bold tracking-wide">{cardType}</h2>
-        <div className="Goto hover:text-S4 text-P2">
+        <div className="Goto text-P2 hover:text-S4">
           <Link href={`/myWeek/${cardType}`}>
             <button className="flex cursor-pointer items-center gap-1 p-0">
               <p className="text-sm">Goto</p>

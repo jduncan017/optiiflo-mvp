@@ -30,15 +30,12 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({ children, modalKey }) => {
       </Dialog.Overlay>
       {/* aria-describedby={undefined} is used to prevent the modal from being announced as a dialog */}
       <Dialog.Content asChild aria-describedby={undefined}>
-        <motion.div
-          className="ModalOuterContainer fixed inset-0 z-20 flex items-center justify-center"
-          onClick={hideModal}
-        >
+        <motion.div className="ModalOuterContainer fixed inset-0 z-20 flex items-center justify-center">
           <AnimatePresence>
             <motion.div
-              className="ModalInnerContents absolute flex max-h-[90%] max-w-[90%] flex-col items-center rounded-[20px] border border-solid border-G3 bg-N1 px-[50px] py-20 text-G5 shadow-optii"
+              className="ModalInnerContents absolute flex max-h-[90%] max-w-[90%] flex-col items-center rounded-[20px] border border-solid border-G3 bg-N1 p-10 text-G5 shadow-optii"
               onClick={handleModalContentClick}
-              initial={{ scale: 0.1, opacity: 0 }}
+              initial={{ scale: 0.6, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{
                 type: "spring",
@@ -55,11 +52,11 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({ children, modalKey }) => {
               )}
               <Dialog.Close asChild>
                 <button
-                  className="absolute right-5 top-5 text-G3 opacity-70 hover:text-G4 hover:opacity-100"
+                  className="absolute right-7 top-7 text-G3 opacity-70 hover:text-G4 hover:opacity-100"
                   aria-label="Close"
                   onClick={hideModal}
                 >
-                  <X className="h-6 w-6" />
+                  <X className="h-7 w-7" />
                 </button>
               </Dialog.Close>
               {children}

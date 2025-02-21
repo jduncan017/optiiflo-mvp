@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import InnerSidebar from "~/components/emailClient/InnerSidebar";
 import ContactOverview from "~/components/contacts/ContactOverview";
 import { Store, User, BriefcaseBusiness } from "lucide-react";
@@ -9,6 +9,14 @@ import ContactList from "~/components/contacts/ContactList";
 import { useCurrentPage } from "~/contexts/currentPageContext";
 
 export default function ContactsPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ContactsContent />
+    </Suspense>
+  );
+}
+
+function ContactsContent() {
   const { setCurrentPage } = useCurrentPage();
   const [selectedContactType, setSelectedContactType] = useState<string | null>(
     "Organizations",
@@ -60,19 +68,19 @@ export default function ContactsPage() {
   };
 
   return (
-    <div className="ContactsPage flex h-full w-full bg-G1">
+    <main className="flex h-full">
       <InnerSidebar
         Buttons={InnerSidebarButtons}
-        selectedButton={selectedContactType}
+        selectedButton={selectedContactType ?? ""}
       />
       {selectedContact ? (
         <ContactOverview contact={selectedContact} onBack={onBack} />
       ) : (
         <ContactList
           onContactSelect={onContactSelect}
-          selectedContactType={selectedContactType ?? "Organizations"}
+          selectedContactType={selectedContactType}
         />
       )}
-    </div>
+    </main>
   );
 }

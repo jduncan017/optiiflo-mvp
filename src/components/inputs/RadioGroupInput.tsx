@@ -25,9 +25,9 @@ export const RadioGroupInput = forwardRef<HTMLDivElement, RadioGroupInputProps>(
     ref,
   ) => {
     return (
-      <div className={cn("flex flex-col gap-2")} ref={ref}>
+      <div className={cn("flex gap-2")} ref={ref}>
         <div className="flex items-center gap-2">
-          <label className={cn("InputLabel text-G5", labelClasses)}>
+          <label className={cn("InputLabel font-medium text-G5", labelClasses)}>
             {label}
           </label>
           {message && <InfoDialogue text={message} />}

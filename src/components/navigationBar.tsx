@@ -1,31 +1,46 @@
 "use client";
 
 import { Button } from "~/components/ui/button";
-import { Clock, Menu } from "lucide-react";
+import { Clock, Menu, Bell } from "lucide-react";
 import Image from "next/image";
 import { useCurrentPage } from "~/contexts/currentPageContext";
-import { Bell } from "lucide-react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { SearchBar } from "~/components/ui/SearchBar";
+import { useRef } from "react";
+import { useEffect } from "react";
 
 export function NavigationBar() {
   const { currentPage } = useCurrentPage();
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
   const router = useRouter();
 
-  const toggleSidebar = () => {
-    const currentSidebarState = searchParams.get("sidebarOpen") === "true";
-    const newSearchParams = new URLSearchParams(searchParams);
-    newSearchParams.set("sidebarOpen", (!currentSidebarState).toString());
-    router.push(`?${newSearchParams.toString()}`);
-  };
+  // const toggleSidebar = () => {
+  //   const currentSidebarState = searchParams.get("sidebarOpen") === "true";
+  //   const newSearchParams = new URLSearchParams(searchParams);
+  //   newSearchParams.set("sidebarOpen", (!currentSidebarState).toString());
+  //   router.push(`?${newSearchParams.toString()}`);
+  // };
+
+  const searchBarRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        searchBarRef.current?.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   return (
     <div className="NavigationBar relative z-10 flex h-[68px] w-full items-center justify-between gap-5 bg-white px-7 py-2 shadow-optii">
       <div className="flex items-center gap-5">
-        <Button variant="menu" size="icon" onClick={toggleSidebar}>
+        {/* <Button variant="menu" size="icon" onClick={toggleSidebar}>
           <Menu className="h-7 w-7" />
-        </Button>
+        </Button> */}
         <div className="flex items-center gap-5">
           <h1 className="text-3xl font-bold capitalize">{currentPage}</h1>
         </div>
@@ -34,6 +49,7 @@ export function NavigationBar() {
         className="SearchBar border-none bg-transparent text-black"
         type="text"
         placeholder="Search, (CMD + K)..."
+        ref={searchBarRef}
       />
       <div className="RightContainer flex w-fit items-center gap-6">
         <Image

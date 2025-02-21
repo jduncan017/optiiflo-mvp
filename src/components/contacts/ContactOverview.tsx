@@ -16,11 +16,6 @@ export default function ContactOverview({
   contact,
   onBack,
 }: ContactOverviewProps) {
-  const name =
-    "name" in contact
-      ? contact.name
-      : contact.firstName + " " + contact.lastName;
-
   const topBarTitles = [
     { name: "Overview", onClick: () => console.log("Overview") },
     { name: "Projects", onClick: () => console.log("Projects") },
@@ -36,7 +31,7 @@ export default function ContactOverview({
   };
 
   return (
-    <div className="ContactOverviewContent flex h-full w-full flex-col bg-G1">
+    <div className="ContactOverviewContent relative z-[1] flex h-full w-full flex-col bg-G1">
       <TopBar titles={topBarTitles} addButton={addButton}>
         <Button variant="secondary" size="sm" onClick={onBack}>
           <ArrowLeft className="h-5 w-5" />
@@ -45,13 +40,11 @@ export default function ContactOverview({
       </TopBar>
       <div className="Layout flex h-full w-full flex-col gap-4 p-4">
         <div className="grid h-full w-full grid-cols-[40%_60%] gap-4">
-          <ClientInfo />
-
+          <ClientInfo contact={contact} />
           <UpcomingDue />
         </div>
         <div className="grid h-full w-full grid-cols-[60%_40%] gap-4">
           <ActiveProjects />
-
           <Attachments />
         </div>
       </div>

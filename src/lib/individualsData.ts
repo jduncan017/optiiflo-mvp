@@ -1,4 +1,8 @@
 import type { Individual } from "~/types/types";
+import { employees } from "./employeeData";
+
+// Helper function to find employee by ID
+const findEmployee = (id: string) => employees.find((emp) => emp.id === id);
 
 export const individuals: Individual[] = [
   {
@@ -13,7 +17,8 @@ export const individuals: Individual[] = [
     organization: "Tech Corp Inc",
     archived: false,
     profilePicture: "/avatars/john-smith.jpg",
-    createdAt: "2023-01-15T08:30:00Z",
+    createdAt: "2023-01-15",
+    pointOfContact: findEmployee("EMP-001")!,
   },
   {
     id: "2",
@@ -27,7 +32,8 @@ export const individuals: Individual[] = [
     organization: "Digital Solutions LLC",
     archived: false,
     profilePicture: "/avatars/sarah-johnson.jpg",
-    createdAt: "2023-02-01T10:15:00Z",
+    createdAt: "2023-02-01",
+    pointOfContact: findEmployee("EMP-002")!,
   },
   {
     id: "3",
@@ -41,7 +47,8 @@ export const individuals: Individual[] = [
     organization: "Innovation Labs",
     archived: false,
     profilePicture: "/avatars/michael-williams.jpg",
-    createdAt: "2023-02-15T14:20:00Z",
+    createdAt: "2023-02-15",
+    pointOfContact: findEmployee("EMP-001")!,
   },
   {
     id: "4",
@@ -55,7 +62,8 @@ export const individuals: Individual[] = [
     organization: "Tech Corp Inc",
     archived: false,
     profilePicture: "/avatars/emily-brown.jpg",
-    createdAt: "2023-03-01T09:45:00Z",
+    createdAt: "2023-03-01",
+    pointOfContact: findEmployee("EMP-002")!,
   },
   {
     id: "5",
@@ -69,7 +77,8 @@ export const individuals: Individual[] = [
     organization: "StartUp Ventures",
     archived: false,
     profilePicture: "/avatars/david-miller.jpg",
-    createdAt: "2023-03-15T11:30:00Z",
+    createdAt: "2023-03-15",
+    pointOfContact: findEmployee("EMP-001")!,
   },
   {
     id: "6",
@@ -83,7 +92,8 @@ export const individuals: Individual[] = [
     organization: "Growth Co",
     archived: false,
     profilePicture: "/avatars/lisa-davis.jpg",
-    createdAt: "2023-04-01T13:20:00Z",
+    createdAt: "2023-04-01",
+    pointOfContact: findEmployee("EMP-002")!,
   },
   {
     id: "7",
@@ -97,7 +107,8 @@ export const individuals: Individual[] = [
     organization: "Tech Corp Inc",
     archived: true,
     profilePicture: "/avatars/james-wilson.jpg",
-    createdAt: "2023-04-15T15:10:00Z",
+    createdAt: "2023-04-15",
+    pointOfContact: findEmployee("EMP-001")!,
   },
   {
     id: "8",
@@ -111,7 +122,8 @@ export const individuals: Individual[] = [
     organization: "Digital Solutions LLC",
     archived: false,
     profilePicture: "/avatars/jessica-anderson.jpg",
-    createdAt: "2023-05-01T16:45:00Z",
+    createdAt: "2023-05-01",
+    pointOfContact: findEmployee("EMP-002")!,
   },
   {
     id: "9",
@@ -125,7 +137,8 @@ export const individuals: Individual[] = [
     organization: "Innovation Labs",
     archived: false,
     profilePicture: "/avatars/robert-taylor.jpg",
-    createdAt: "2023-05-15T08:30:00Z",
+    createdAt: "2023-05-15",
+    pointOfContact: findEmployee("EMP-001")!,
   },
   {
     id: "10",
@@ -139,7 +152,8 @@ export const individuals: Individual[] = [
     organization: "StartUp Ventures",
     archived: false,
     profilePicture: "/avatars/amanda-thomas.jpg",
-    createdAt: "2023-06-01T10:20:00Z",
+    createdAt: "2023-06-01",
+    pointOfContact: findEmployee("EMP-002")!,
   },
   {
     id: "11",
@@ -153,7 +167,8 @@ export const individuals: Individual[] = [
     organization: "Global Tech",
     archived: false,
     profilePicture: "/avatars/chris-martinez.jpg",
-    createdAt: "2023-06-15T12:15:00Z",
+    createdAt: "2023-06-15",
+    pointOfContact: findEmployee("EMP-001")!,
   },
   {
     id: "12",
@@ -167,7 +182,8 @@ export const individuals: Individual[] = [
     organization: "Tech Corp Inc",
     archived: true,
     profilePicture: "/avatars/michelle-garcia.jpg",
-    createdAt: "2023-07-01T14:30:00Z",
+    createdAt: "2023-07-01",
+    pointOfContact: findEmployee("EMP-002")!,
   },
   {
     id: "13",
@@ -181,7 +197,8 @@ export const individuals: Individual[] = [
     organization: "Innovation Labs",
     archived: false,
     profilePicture: "/avatars/daniel-lee.jpg",
-    createdAt: "2023-07-15T16:45:00Z",
+    createdAt: "2023-07-15",
+    pointOfContact: findEmployee("EMP-001")!,
   },
   {
     id: "14",
@@ -195,7 +212,8 @@ export const individuals: Individual[] = [
     organization: "Digital Solutions LLC",
     archived: false,
     profilePicture: "/avatars/rachel-clark.jpg",
-    createdAt: "2023-08-01T09:10:00Z",
+    createdAt: "2023-08-01",
+    pointOfContact: findEmployee("EMP-002")!,
   },
   {
     id: "15",
@@ -209,7 +227,8 @@ export const individuals: Individual[] = [
     organization: "Growth Co",
     archived: false,
     profilePicture: "/avatars/kevin-rodriguez.jpg",
-    createdAt: "2023-08-15T11:25:00Z",
+    createdAt: "2023-08-15",
+    pointOfContact: findEmployee("EMP-001")!,
   },
   {
     id: "16",
@@ -223,7 +242,8 @@ export const individuals: Individual[] = [
     organization: "Tech Corp Inc",
     archived: false,
     profilePicture: "/avatars/jennifer-lewis.jpg",
-    createdAt: "2023-09-01T13:40:00Z",
+    createdAt: "2023-09-01",
+    pointOfContact: findEmployee("EMP-002")!,
   },
   {
     id: "17",
@@ -237,7 +257,8 @@ export const individuals: Individual[] = [
     organization: "StartUp Ventures",
     archived: false,
     profilePicture: "/avatars/william-walker.jpg",
-    createdAt: "2023-09-15T15:55:00Z",
+    createdAt: "2023-09-15",
+    pointOfContact: findEmployee("EMP-001")!,
   },
   {
     id: "18",
@@ -251,7 +272,8 @@ export const individuals: Individual[] = [
     organization: "Digital Solutions LLC",
     archived: false,
     profilePicture: "/avatars/elizabeth-hall.jpg",
-    createdAt: "2023-10-01T08:15:00Z",
+    createdAt: "2023-10-01",
+    pointOfContact: findEmployee("EMP-002")!,
   },
   {
     id: "19",
@@ -265,7 +287,8 @@ export const individuals: Individual[] = [
     organization: "Tech Corp Inc",
     archived: true,
     profilePicture: "/avatars/andrew-young.jpg",
-    createdAt: "2023-10-15T10:30:00Z",
+    createdAt: "2023-10-15",
+    pointOfContact: findEmployee("EMP-001")!,
   },
   {
     id: "20",
@@ -279,7 +302,8 @@ export const individuals: Individual[] = [
     organization: "Growth Co",
     archived: false,
     profilePicture: "/avatars/maria-king.jpg",
-    createdAt: "2023-11-01T12:45:00Z",
+    createdAt: "2023-11-01",
+    pointOfContact: findEmployee("EMP-002")!,
   },
   {
     id: "21",
@@ -293,7 +317,8 @@ export const individuals: Individual[] = [
     organization: "Innovation Labs",
     archived: false,
     profilePicture: "/avatars/thomas-scott.jpg",
-    createdAt: "2023-11-15T14:20:00Z",
+    createdAt: "2023-11-15",
+    pointOfContact: findEmployee("EMP-001")!,
   },
   {
     id: "22",
@@ -307,7 +332,8 @@ export const individuals: Individual[] = [
     organization: "Digital Solutions LLC",
     archived: false,
     profilePicture: "/avatars/sandra-adams.jpg",
-    createdAt: "2023-12-01T16:35:00Z",
+    createdAt: "2023-12-01",
+    pointOfContact: findEmployee("EMP-002")!,
   },
   {
     id: "23",
@@ -321,7 +347,8 @@ export const individuals: Individual[] = [
     organization: "Tech Corp Inc",
     archived: false,
     profilePicture: "/avatars/joseph-nelson.jpg",
-    createdAt: "2023-12-15T09:50:00Z",
+    createdAt: "2023-12-15",
+    pointOfContact: findEmployee("EMP-001")!,
   },
   {
     id: "24",
@@ -335,7 +362,8 @@ export const individuals: Individual[] = [
     organization: "StartUp Ventures",
     archived: false,
     profilePicture: "/avatars/laura-carter.jpg",
-    createdAt: "2024-01-01T11:05:00Z",
+    createdAt: "2024-01-01",
+    pointOfContact: findEmployee("EMP-002")!,
   },
   {
     id: "25",
@@ -349,6 +377,9 @@ export const individuals: Individual[] = [
     organization: "Growth Co",
     archived: false,
     profilePicture: "/avatars/steven-mitchell.jpg",
-    createdAt: "2024-01-15T13:20:00Z",
+    createdAt: "2024-01-15",
+    pointOfContact: findEmployee("EMP-001")!,
   },
 ];
+
+export type IndividualData = (typeof individuals)[number];

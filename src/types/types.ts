@@ -1,3 +1,5 @@
+import type { EmployeeData } from "~/lib/employeeData";
+
 export type Individual = {
   id: string;
   firstName: string;
@@ -11,6 +13,7 @@ export type Individual = {
   archived: boolean;
   profilePicture: string;
   createdAt: string;
+  pointOfContact: EmployeeData;
 };
 
 export type Organization = {
@@ -26,4 +29,5 @@ export type Organization = {
   priority: "High" | "Medium" | "Low";
   website: string;
   createdAt: string;
+  pointOfContact: EmployeeData;
 };

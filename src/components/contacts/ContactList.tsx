@@ -8,7 +8,7 @@ import type { Organization, Individual } from "~/types/types";
 
 interface ContactListProps {
   onContactSelect: (contact: Organization | Individual) => void;
-  selectedContactType: string;
+  selectedContactType: string | null;
 }
 
 export default function ContactList({
@@ -62,7 +62,7 @@ export default function ContactList({
   }
 
   return (
-    <div className="ContactsPage flex h-full w-full bg-G1">
+    <div className="ContactsPage relative z-[1] flex h-full w-full bg-G1">
       <div className="Content flex h-full w-full flex-col items-center bg-N1">
         <TopBar
           titles={topBarTitles}

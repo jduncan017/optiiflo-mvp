@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import { useSearchParams } from "next/navigation";
 interface CurrentPageContextProps {
@@ -13,9 +13,15 @@ const CurrentPageContext = createContext<CurrentPageContextProps | undefined>(
 );
 
 export const CurrentPageProvider = ({ children }: { children: ReactNode }) => {
+  const [currentPage, setCurrentPage] = useState("Dashboard");
   const searchParams = useSearchParams();
-  const pageRoute = searchParams.get("currentPage") ?? "My Week";
-  const [currentPage, setCurrentPage] = useState(pageRoute);
+
+  // useEffect(() => {
+  //   const pageRoute = searchParams.get("currentPage");
+  //   if (pageRoute) {
+  //     setCurrentPage(pageRoute);
+  //   }
+  // }, [searchParams]);
 
   return (
     <CurrentPageContext.Provider value={{ currentPage, setCurrentPage }}>

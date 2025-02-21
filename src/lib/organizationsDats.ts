@@ -1,5 +1,9 @@
 import type { Organization } from "~/types/types";
 import { individuals } from "./individualsData";
+import { employees } from "./employeeData";
+
+// Helper function to find employee by ID
+const findEmployee = (id: string) => employees.find((emp) => emp.id === id);
 
 export const organizations: Organization[] = [
   {
@@ -14,7 +18,8 @@ export const organizations: Organization[] = [
     logo: "/logos/techcorp.png",
     priority: "High",
     website: "www.techcorp.com",
-    createdAt: "2023-01-01T00:00:00Z",
+    pointOfContact: findEmployee("EMP-001")!,
+    createdAt: "2023-01-01",
   },
   {
     id: "2",
@@ -30,7 +35,8 @@ export const organizations: Organization[] = [
     logo: "/logos/digitalsolutions.png",
     priority: "Medium",
     website: "www.digitalsolutions.com",
-    createdAt: "2023-01-02T00:00:00Z",
+    pointOfContact: findEmployee("EMP-002")!,
+    createdAt: "2023-01-02",
   },
   {
     id: "3",
@@ -44,7 +50,8 @@ export const organizations: Organization[] = [
     logo: "/logos/innovationlabs.png",
     priority: "High",
     website: "www.innovationlabs.com",
-    createdAt: "2023-01-03T00:00:00Z",
+    pointOfContact: findEmployee("EMP-001")!,
+    createdAt: "2023-01-03",
   },
   {
     id: "4",
@@ -58,7 +65,8 @@ export const organizations: Organization[] = [
     logo: "/logos/startupventures.png",
     priority: "Medium",
     website: "www.startupventures.com",
-    createdAt: "2023-01-04T00:00:00Z",
+    pointOfContact: findEmployee("EMP-002")!,
+    createdAt: "2023-01-04",
   },
   {
     id: "5",
@@ -72,7 +80,8 @@ export const organizations: Organization[] = [
     logo: "/logos/globaltech.png",
     priority: "High",
     website: "www.globaltech.com",
-    createdAt: "2023-01-05T00:00:00Z",
+    pointOfContact: findEmployee("EMP-001")!,
+    createdAt: "2023-01-05",
   },
   {
     id: "6",
@@ -86,6 +95,9 @@ export const organizations: Organization[] = [
     logo: "/logos/growthco.png",
     priority: "Medium",
     website: "www.growthco.com",
-    createdAt: "2023-01-06T00:00:00Z",
+    pointOfContact: findEmployee("EMP-002")!,
+    createdAt: "2023-01-06",
   },
 ];
+
+export type OrganizationData = (typeof organizations)[number];
