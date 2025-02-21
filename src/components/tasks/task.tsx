@@ -2,12 +2,29 @@
 import { SquareArrowOutUpRight, Ellipsis, Clock } from "lucide-react";
 import type { TaskData } from "~/lib/taskData";
 import ListItemWrapper from "~/components/wrappers/listItemWrapper";
+import { useModal } from "~/contexts/ModalContext";
+import TaskModal from "~/components/modals/TaskModal";
 
 export default function Task({ task }: { task: TaskData }) {
+  const { showModal } = useModal();
+
   return (
     <ListItemWrapper className="hover:cursor-grab">
       <div className="TaskLeftSide flex flex-col">
-        <div className="TaskTitleContainer flex w-fit items-center gap-2 hover:text-P2 hover:underline">
+        <div
+          className="TaskTitleContainer flex w-fit items-center gap-2 hover:text-P2 hover:underline"
+          onClick={() => {
+            showModal(
+              <TaskModal
+                task={task}
+                isEditing={false}
+                onSave={() => console.log("save")}
+                onDelete={() => console.log("delete")}
+                onCancel={() => console.log("cancel")}
+              />,
+            );
+          }}
+        >
           <p className="TaskTitle cursor-pointer font-bold">{task.title}</p>
           <div className="TaskButtonContainer hover:text-P2">
             <SquareArrowOutUpRight className="h-4 w-4 cursor-pointer" />

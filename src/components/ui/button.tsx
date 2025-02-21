@@ -18,6 +18,7 @@ const buttonVariants = cva(
         ghostSelected:
           "text-P2 hover:text-P2 hover:bg-G1 shadow-optii bg-G1 cursor-default",
         menu: "hover:bg-P2 hover:text-N1",
+        outline: "border-2 border-G2 hover:bg-G1",
       },
       size: {
         default: "h-10 px-4 py-2",

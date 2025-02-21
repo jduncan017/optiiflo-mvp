@@ -6,8 +6,10 @@ import ContactOverview from "~/components/contacts/ContactOverview";
 import { Store, User, BriefcaseBusiness } from "lucide-react";
 import type { Organization, Individual } from "~/types/types";
 import ContactList from "~/components/contacts/ContactList";
+import { useCurrentPage } from "~/contexts/currentPageContext";
 
 export default function ContactsPage() {
+  const { setCurrentPage } = useCurrentPage();
   const [selectedContactType, setSelectedContactType] = useState<string | null>(
     "Organizations",
   );
@@ -24,21 +26,32 @@ export default function ContactsPage() {
   const InnerSidebarButtons = {
     Organizations: {
       icon: Store,
-      action: () => onContactTypeSelect("Organizations"),
+      action: () => {
+        onContactTypeSelect("Organizations");
+      },
     },
     Individuals: {
       icon: User,
-      action: () => onContactTypeSelect("Individuals"),
+      action: () => {
+        onContactTypeSelect("Individuals");
+      },
     },
     Coworkers: {
       icon: BriefcaseBusiness,
-      action: () => onContactTypeSelect("Coworkers"),
+      action: () => {
+        onContactTypeSelect("Coworkers");
+      },
     },
   };
 
   const onContactSelect = (contact: Organization | Individual) => {
     setSelectedContactType(null);
     setSelectedContact(contact);
+    setCurrentPage(
+      "name" in contact
+        ? contact.name
+        : `${contact.firstName} ${contact.lastName}`,
+    );
   };
 
   const onBack = () => {

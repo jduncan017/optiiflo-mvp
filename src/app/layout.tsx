@@ -4,6 +4,7 @@ import { NavigationBar } from "~/components/navigationBar";
 import { type Metadata } from "next";
 import { CurrentPageProvider } from "~/contexts/currentPageContext";
 import { Suspense } from "react";
+import { ModalProvider } from "~/contexts/ModalContext";
 
 export const metadata: Metadata = {
   title: "Optiiflo MVP",
@@ -46,19 +47,21 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${kumbhSans.variable}`}>
       <body className="flex h-screen w-full overflow-hidden font-kumbh">
-        <CurrentPageProvider>
-          <Suspense fallback={<div>Loading...</div>}>
-            <SidebarComponent />
-          </Suspense>
-          <div className="MainContentContainer flex h-full w-full flex-col">
+        <ModalProvider>
+          <CurrentPageProvider>
             <Suspense fallback={<div>Loading...</div>}>
-              <NavigationBar />
+              <SidebarComponent />
             </Suspense>
-            <div className="MainContentWindow h-full max-h-[calc(100vh-68px)]">
-              {children}
+            <div className="MainContentContainer flex h-full w-full flex-col">
+              <Suspense fallback={<div>Loading...</div>}>
+                <NavigationBar />
+              </Suspense>
+              <div className="MainContentWindow h-full max-h-[calc(100vh-68px)]">
+                {children}
+              </div>
             </div>
-          </div>
-        </CurrentPageProvider>
+          </CurrentPageProvider>
+        </ModalProvider>
       </body>
     </html>
   );

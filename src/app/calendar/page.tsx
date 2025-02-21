@@ -52,8 +52,8 @@ export default function CalendarPage() {
   ];
 
   return (
-    <div className="CalendarPage flex h-full w-full bg-G1">
-      <div className="PageContent flex h-full w-full flex-col items-center justify-center bg-G1 text-2xl">
+    <div className="CalendarPage w-ful flex h-full">
+      <div className="PageContent flex h-full w-full flex-col items-center justify-center bg-G5 text-2xl">
         <TopBar
           titles={topBarTitles}
           addButton={{
@@ -69,12 +69,18 @@ export default function CalendarPage() {
               <Button
                 size="smIcon"
                 className="h-fit bg-N1 text-P2 shadow-optii hover:bg-P2 hover:text-N1"
+                onClick={() => {
+                  setStartDate(new Date(startDate.setMonth(month - 1)));
+                }}
               >
                 <ChevronLeft className="h-4 w-4" />
               </Button>
               <Button
                 size="smIcon"
                 className="h-fit bg-N1 text-P2 shadow-optii hover:bg-P2 hover:text-N1"
+                onClick={() => {
+                  setStartDate(new Date(startDate.setMonth(month + 1)));
+                }}
               >
                 <ChevronRight className="h-4 w-4" />
               </Button>
@@ -84,8 +90,8 @@ export default function CalendarPage() {
             </h2>
           </div>
         </TopBar>
-        <div className="CalendarContent flex h-full w-full flex-col items-center justify-center p-5">
-          <MonthView year={year} month={month} />
+        <div className="CalendarContent flex h-full w-full flex-col items-center justify-center pt-5">
+          {selectedTab === "Month" && <MonthView year={year} month={month} />}
         </div>
       </div>
     </div>

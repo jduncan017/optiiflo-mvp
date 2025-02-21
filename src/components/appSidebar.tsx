@@ -8,10 +8,11 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useCurrentPage } from "~/contexts/currentPageContext";
+import { usePathname } from "next/navigation";
 
 // Define the sidebar styles using cva
 const sidebarStyles = cva(
-  "Sidebar flex h-full flex-col gap-5 bg-G5 py-8 transition-all duration-300 border-r border-black",
+  "Sidebar flex h-full flex-col gap-3 bg-G5 py-8 transition-all duration-300 border-r border-black",
   {
     variants: {
       isOpen: {
@@ -28,14 +29,15 @@ const sidebarStyles = cva(
 export default function SidebarComponent() {
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
-  const { currentPage, setCurrentPage } = useCurrentPage();
+  const { setCurrentPage } = useCurrentPage();
+  const pathName = usePathname().split("/").pop();
 
   useEffect(() => {
     setIsOpen(searchParams.get("sidebarOpen") === "true");
   }, [searchParams]);
 
   const menuItems = [
-    { name: "My Week", icon: Home, href: "/dashboard?sidebarOpen=true" },
+    { name: "Dashboard", icon: Home, href: "/dashboard?sidebarOpen=true" },
     { name: "Bridge", icon: Waypoints, href: "/bridge?sidebarOpen=true" },
     { name: "Projects", icon: Folder, href: "/projects?sidebarOpen=true" },
     { name: "Contacts", icon: Users, href: "/contacts?sidebarOpen=true" },
@@ -53,7 +55,9 @@ export default function SidebarComponent() {
         <Link href={item.href} key={item.name}>
           <Button
             key={item.name}
-            variant={currentPage === item.name ? "selected" : "default"}
+            variant={
+              pathName === item.name.toLowerCase() ? "selected" : "default"
+            }
             size="lg"
             className="w-full text-nowrap"
             onClick={() => setCurrentPage(item.name)}
