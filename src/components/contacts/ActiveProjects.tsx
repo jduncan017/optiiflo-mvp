@@ -6,7 +6,7 @@ import Task from "../tasks/task";
 const sampleTask = {
   id: "TASK-001",
   title: "Update Client Portal UI",
-  companyName: "TechCorp Solutions",
+  companyId: "COMP-001",
   projectName: "Client Portal Redesign",
   timeSpent: 12.5,
   timeBudget: 20,
