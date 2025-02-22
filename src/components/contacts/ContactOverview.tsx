@@ -1,3 +1,4 @@
+"use client";
 import type { Organization, Individual } from "~/types/types";
 import TopBar from "../ui/topBar";
 import { Button } from "../ui/button";
@@ -6,16 +7,16 @@ import ClientInfo from "./ClientInfo";
 import UpcomingDue from "./UpcomingDueDates";
 import ActiveProjects from "./ActiveProjects";
 import Attachments from "./Attachments";
+import { useRouter } from "next/navigation";
+import { taskData } from "~/lib/taskData";
 
 interface ContactOverviewProps {
   contact: Organization | Individual;
-  onBack: () => void;
 }
 
-export default function ContactOverview({
-  contact,
-  onBack,
-}: ContactOverviewProps) {
+export default function ContactOverview({ contact }: ContactOverviewProps) {
+  const router = useRouter();
+
   const topBarTitles = [
     { name: "Overview", onClick: () => console.log("Overview") },
     { name: "Projects", onClick: () => console.log("Projects") },
@@ -23,6 +24,12 @@ export default function ContactOverview({
     { name: "Communications", onClick: () => console.log("Communications") },
     { name: "Documents", onClick: () => console.log("Documents") },
   ];
+
+  function onBack() {
+    router.back();
+  }
+
+  const tasks = taskData.filter((task) => task.companyId === contact.id);
 
   const addButton = {
     label: "Add Project",
@@ -38,12 +45,12 @@ export default function ContactOverview({
           Back
         </Button>
       </TopBar>
-      <div className="Layout flex h-full w-full flex-col gap-4 p-4">
-        <div className="grid h-full w-full grid-cols-[40%_60%] gap-4">
+      <div className="ContentLayout flex flex-1 flex-col gap-4 overflow-auto p-4">
+        <div className="TopSection grid h-full w-full grid-cols-[2fr_3fr] gap-4">
           <ClientInfo contact={contact} />
-          <UpcomingDue />
+          <UpcomingDue tasks={tasks} />
         </div>
-        <div className="grid h-full w-full grid-cols-[60%_40%] gap-4">
+        <div className="BottomSection grid h-full w-full grid-cols-[3fr_2fr] gap-4">
           <ActiveProjects />
           <Attachments />
         </div>

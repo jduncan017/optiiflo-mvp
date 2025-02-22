@@ -20,7 +20,7 @@ const SidebarStyles = cva(
   {
     variants: {
       isOpen: {
-        true: "min-w-[240px]",
+        true: "min-w-[220px]",
         false: "min-w-[80px]",
       },
     },
@@ -69,7 +69,7 @@ export default function InnerSidebar({
             >
               <button.icon />
               {isOpen && (
-                <p className="absolute left-[70px] text-lg font-medium">
+                <p className="absolute left-[52px] text-lg font-medium">
                   {key}
                 </p>
               )}
@@ -104,7 +104,7 @@ export default function InnerSidebar({
               <Menu className="h-6 w-6" />
             )}
             {isOpen && (
-              <p className="absolute left-[70px] text-lg font-medium">
+              <p className="absolute left-[52px] text-lg font-medium">
                 {isOpen ? "Close" : "Menu"}
               </p>
             )}

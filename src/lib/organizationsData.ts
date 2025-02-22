@@ -7,7 +7,7 @@ const findEmployee = (id: string) => employees.find((emp) => emp.id === id);
 
 export const organizations: Organization[] = [
   {
-    id: "1",
+    id: "COMP-001",
     name: "Tech Corp Inc",
     email: "contact@techcorp.com",
     phone: "(555) 111-0000",
@@ -22,7 +22,7 @@ export const organizations: Organization[] = [
     createdAt: "2023-01-01",
   },
   {
-    id: "2",
+    id: "COMP-002",
     name: "Digital Solutions LLC",
     email: "info@digitalsolutions.com",
     phone: "(555) 222-0000",
@@ -39,7 +39,7 @@ export const organizations: Organization[] = [
     createdAt: "2023-01-02",
   },
   {
-    id: "3",
+    id: "COMP-003",
     name: "Innovation Labs",
     email: "hello@innovationlabs.com",
     phone: "(555) 333-0000",
@@ -54,7 +54,7 @@ export const organizations: Organization[] = [
     createdAt: "2023-01-03",
   },
   {
-    id: "4",
+    id: "COMP-004",
     name: "StartUp Ventures",
     email: "contact@startupventures.com",
     phone: "(555) 444-0000",
@@ -69,7 +69,7 @@ export const organizations: Organization[] = [
     createdAt: "2023-01-04",
   },
   {
-    id: "5",
+    id: "COMP-005",
     name: "Global Tech",
     email: "info@globaltech.com",
     phone: "(555) 555-0000",
@@ -84,7 +84,7 @@ export const organizations: Organization[] = [
     createdAt: "2023-01-05",
   },
   {
-    id: "6",
+    id: "COMP-006",
     name: "Growth Co",
     email: "hello@growthco.com",
     phone: "(555) 666-0000",

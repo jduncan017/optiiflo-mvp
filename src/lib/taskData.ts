@@ -1,8 +1,10 @@
+import { organizations } from "~/lib/organizationsData";
+
 export const taskData = [
   {
     id: "TASK-001",
     title: "Update Client Portal UI",
-    companyName: "TechCorp Solutions",
+    companyId: "COMP-001",
     projectName: "Client Portal Redesign",
     timeSpent: 12.5,
     timeBudget: 20,
@@ -36,7 +38,7 @@ export const taskData = [
   {
     id: "TASK-002",
     title: "Quarterly Financial Report Review",
-    companyName: "Global Finance Inc",
+    companyId: "COMP-002",
     projectName: "Q4 Financial Reporting",
     timeSpent: 4,
     timeBudget: 8,
@@ -65,7 +67,7 @@ export const taskData = [
   {
     id: "TASK-003",
     title: "Office Supply Inventory",
-    companyName: "TechCorp Solutions",
+    companyId: "COMP-001",
     projectName: "Office Management",
     timeSpent: 1.5,
     timeBudget: 2,
@@ -82,7 +84,7 @@ export const taskData = [
   {
     id: "TASK-004",
     title: "Security Audit Implementation",
-    companyName: "CyberSafe Systems",
+    companyId: "COMP-003",
     projectName: "Annual Security Review",
     timeSpent: 28,
     timeBudget: 40,
@@ -116,7 +118,7 @@ export const taskData = [
   {
     id: "TASK-005",
     title: "Employee Onboarding Documentation",
-    companyName: "HR Solutions Pro",
+    companyId: "COMP-004",
     projectName: "HR Process Improvement",
     timeSpent: 0,
     timeBudget: 10,
@@ -133,7 +135,7 @@ export const taskData = [
   {
     id: "TASK-006",
     title: "Legacy System Migration",
-    companyName: "TechCorp Solutions",
+    companyId: "COMP-001",
     projectName: "System Modernization",
     timeSpent: 45,
     timeBudget: 100,
@@ -167,7 +169,7 @@ export const taskData = [
   {
     id: "TASK-007",
     title: "Marketing Campaign Analysis",
-    companyName: "Digital Marketing Pro",
+    companyId: "COMP-005",
     projectName: "Q4 Campaign Review",
     timeSpent: 8,
     timeBudget: 12,
@@ -184,7 +186,7 @@ export const taskData = [
   {
     id: "TASK-008",
     title: "Year-End Server Maintenance",
-    companyName: "TechCorp Solutions",
+    companyId: "COMP-001",
     projectName: "Infrastructure",
     timeSpent: 0,
     timeBudget: 16,
@@ -207,7 +209,7 @@ export const taskData = [
   {
     id: "TASK-009",
     title: "Client Presentation Preparation",
-    companyName: "Global Finance Inc",
+    companyId: "COMP-002",
     projectName: "Client Relations",
     timeSpent: 3.5,
     timeBudget: 5,
@@ -236,7 +238,7 @@ export const taskData = [
   {
     id: "TASK-010",
     title: "Employee Satisfaction Survey",
-    companyName: "HR Solutions Pro",
+    companyId: "COMP-004",
     projectName: "Employee Engagement",
     timeSpent: 0,
     timeBudget: 6,
@@ -253,3 +255,10 @@ export const taskData = [
 ];
 
 export type TaskData = (typeof taskData)[0];
+
+export function getOrganizationName(companyId: string): string {
+  return (
+    organizations.find((org) => org.id === companyId)?.name ??
+    "Unknown Organization"
+  );
+}

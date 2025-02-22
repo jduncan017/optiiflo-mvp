@@ -3,7 +3,7 @@ import CardWrapper from "~/components/CardWrapper";
 import Link from "next/link";
 import { SquareArrowOutUpRight } from "lucide-react";
 import type { IndividualData } from "~/lib/individualsData";
-import type { OrganizationData } from "~/lib/organizationsDats";
+import type { OrganizationData } from "~/lib/organizationsData";
 type ClientInfoProps = {
   contact: IndividualData | OrganizationData;
 };

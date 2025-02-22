@@ -44,7 +44,7 @@ function SidebarContent() {
     { name: "Dashboard", icon: Home, href: "/dashboard?sidebarOpen=true" },
     { name: "Bridge", icon: Waypoints, href: "/bridge?sidebarOpen=true" },
     { name: "Projects", icon: Folder, href: "/projects?sidebarOpen=true" },
-    { name: "Contacts", icon: Users, href: "/contacts?sidebarOpen=true" },
+    { name: "Clients", icon: Users, href: "/clients?sidebarOpen=true" },
     { name: "Calendar", icon: Calendar, href: "/calendar?sidebarOpen=true" },
     {
       name: "Time Tracking",

@@ -4,9 +4,12 @@ import type { TaskData } from "~/lib/taskData";
 import ListItemWrapper from "~/components/wrappers/listItemWrapper";
 import { useModal } from "~/contexts/ModalContext";
 import TaskModal from "~/components/modals/TaskModal";
+import { useRouter } from "next/navigation";
+import { getOrganizationName } from "~/lib/taskData";
 
 export default function Task({ task }: { task: TaskData }) {
   const { showModal } = useModal();
+  const router = useRouter();
 
   return (
     <ListItemWrapper className="hover:cursor-grab">
@@ -31,8 +34,13 @@ export default function Task({ task }: { task: TaskData }) {
           </div>
         </div>
         <div className="TaskDetails flex items-center gap-2 text-G4">
-          <p className="CompanyName cursor-pointer underline hover:text-P2">
-            {task.companyName}
+          <p
+            className="CompanyName cursor-pointer underline hover:text-P2"
+            onClick={() => {
+              router.push(`/clients/organizations/${task.companyId}`);
+            }}
+          >
+            {getOrganizationName(task.companyId)}
           </p>
           <p className="Divider text-G2">|</p>
           <p className="Project cursor-pointer underline hover:text-P2">

@@ -2,7 +2,7 @@ import TopBar from "~/components/ui/topBar";
 import { useState } from "react";
 import { Plus } from "lucide-react";
 import ContactItem from "~/components/contacts/contactItem";
-import { organizations } from "~/lib/organizationsDats";
+import { organizations } from "~/lib/organizationsData";
 import { individuals } from "~/lib/individualsData";
 import type { Organization, Individual } from "~/types/types";
 
