@@ -5,6 +5,8 @@ import { type Metadata } from "next";
 import { CurrentPageProvider } from "~/contexts/currentPageContext";
 import { Suspense } from "react";
 import { ModalProvider } from "~/contexts/ModalContext";
+import { ContextMenu } from "radix-ui";
+import ContextMenuDemo from "~/components/ui/ContextMenu";
 
 export const metadata: Metadata = {
   title: "Optiiflo MVP",
@@ -54,15 +56,20 @@ export default function RootLayout({
             <div className="MainContentContainer flex h-full w-full flex-col">
               <NavigationBar />
               <div className="MainContentWindow h-full max-h-[calc(100vh-68px)]">
-                <Suspense
-                  fallback={
-                    <div className="flex h-full w-full items-center justify-center bg-G1">
-                      <div className="text-lg">Loading...</div>
-                    </div>
-                  }
-                >
-                  {children}
-                </Suspense>
+                <ContextMenu.Root>
+                  <ContextMenu.Trigger>
+                    <Suspense
+                      fallback={
+                        <div className="flex h-full w-full items-center justify-center bg-G1">
+                          <div className="text-lg">Loading...</div>
+                        </div>
+                      }
+                    >
+                      {children}
+                    </Suspense>
+                  </ContextMenu.Trigger>
+                  <ContextMenuDemo />
+                </ContextMenu.Root>
               </div>
             </div>
           </CurrentPageProvider>
