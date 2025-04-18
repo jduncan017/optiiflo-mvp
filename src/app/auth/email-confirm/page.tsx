@@ -17,7 +17,7 @@ function EmailConfirmContent() {
   useEffect(() => {
     if (isSuccess) {
       const timer = setTimeout(() => {
-        router.push("/dashboard");
+        router.push("/protected/bridge");
       }, 3000);
       return () => clearTimeout(timer);
     }

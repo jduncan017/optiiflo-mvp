@@ -37,25 +37,25 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Define public routes that don't require authentication
-  const publicRoutes = ["/auth/signin", "/auth/signup", "/auth/verify-email"];
+  // Define Auth routes that don't require authentication
+  const authRoutes = ["/auth/signin", "/auth/signup", "/auth/verify-email"];
 
   const path = request.nextUrl.pathname;
-  const isPublicRoute = publicRoutes.some((route) => path.startsWith(route));
+  const isAuthRoute = authRoutes.some((route) => path.startsWith(route));
 
   // Handle root and auth redirects
   if (path === "/") {
     return NextResponse.redirect(
-      new URL(user ? "/dashboard" : "/auth/signin", request.url),
+      new URL(user ? "/protected/bridge" : "/auth/signin", request.url),
     );
   }
 
-  // Redirect unauthenticated users away from protected pages
-  if (user && isPublicRoute) {
-    return NextResponse.redirect(new URL("/dashboard", request.url));
+  // Redirect authenticated users away from auth pages
+  if (user && isAuthRoute) {
+    return NextResponse.redirect(new URL("/protected/bridge", request.url));
   }
 
-  // Redirect authenticated users away from auth pages
+  // Redirect unauthenticated users away from protected pages
   if (!user && path.startsWith("/protected")) {
     return NextResponse.redirect(new URL("/auth/signin", request.url));
   }
