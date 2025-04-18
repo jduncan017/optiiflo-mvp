@@ -41,15 +41,35 @@ function SidebarContent() {
   }, [searchParams]);
 
   const menuItems = [
-    { name: "Dashboard", icon: Home, href: "/dashboard?sidebarOpen=true" },
-    { name: "Bridge", icon: Waypoints, href: "/bridge?sidebarOpen=true" },
-    { name: "Projects", icon: Folder, href: "/projects?sidebarOpen=true" },
-    { name: "Clients", icon: Users, href: "/clients?sidebarOpen=true" },
-    { name: "Calendar", icon: Calendar, href: "/calendar?sidebarOpen=true" },
+    {
+      name: "Dashboard",
+      icon: Home,
+      href: "/protected/dashboard?sidebarOpen=true",
+    },
+    {
+      name: "Bridge",
+      icon: Waypoints,
+      href: "/protected/bridge?sidebarOpen=true",
+    },
+    {
+      name: "Projects",
+      icon: Folder,
+      href: "/protected/projects?sidebarOpen=true",
+    },
+    {
+      name: "Clients",
+      icon: Users,
+      href: "/protected/clients?sidebarOpen=true",
+    },
+    {
+      name: "Calendar",
+      icon: Calendar,
+      href: "/protected/calendar?sidebarOpen=true",
+    },
     {
       name: "Time Tracking",
       icon: Clock,
-      href: "/timeTracking?sidebarOpen=true",
+      href: "/protected/timeTracking?sidebarOpen=true",
     },
   ];
 
