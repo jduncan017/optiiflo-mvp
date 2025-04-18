@@ -1,7 +1,7 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
 import PlannerCard from "./plannerCard";
-import TaskList from "../../components/tasks/taskList";
+import TaskList from "~/components/tasks/taskList";
 import { useEffect, Suspense, useCallback } from "react";
 import TopBar from "~/components/ui/topBar";
 import { Plus } from "lucide-react";
