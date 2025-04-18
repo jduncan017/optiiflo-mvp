@@ -18,7 +18,7 @@ export const CurrentPageProvider = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    const page = pathname.split("/")[1];
+    const page = pathname.split("/protected/")[1];
     if (page) {
       setCurrentPage(page.charAt(0).toUpperCase() + page.slice(1));
     }
